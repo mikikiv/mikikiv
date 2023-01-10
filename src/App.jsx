@@ -1,17 +1,24 @@
 import React from 'react';
 import {
   ChakraProvider,
+  extendTheme,
   Box,
   Text,
   Link,
   VStack,
   Grid,
-  theme,
   Avatar,
   Heading,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import NotesApp from './components/NotesApp';
+
+const theme = extendTheme({
+  config: {
+    useSystemColorMode: true,
+    initialColorMode: 'dark',
+  },
+});
 
 function App() {
   return (
