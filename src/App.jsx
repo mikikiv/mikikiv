@@ -9,8 +9,6 @@ import {
   theme,
   Avatar,
   Heading,
-  InputGroup,
-  Textarea,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import NotesApp from './components/NotesApp';
