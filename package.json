@@ -2,6 +2,8 @@
   "name": "mikikiv",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://www.mikikiv.com/",
+  "author": "Mikey Villavicencio <villavicem@gmail.com>",
   "dependencies": {
     "@chakra-ui/icons": "^2.0.15",
     "@chakra-ui/react": "^2.4.6",

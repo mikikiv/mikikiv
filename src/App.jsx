@@ -11,12 +11,12 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import NotesApp from './components/NotesApp';
-import SiteCard from './components/SiteCard';
+import SiteGrid from './components/SiteGrid';
 
 function App() {
   return (
     <Box fontSize="xl">
-      <Grid minH="100vh" p={3}>
+      <Grid minH="20vh" p={3}>
         <ColorModeSwitcher justifySelf="flex-end" />
         <VStack spacing={8}>
           <Avatar
@@ -40,11 +40,11 @@ function App() {
               this and that...
             </Text>
           </Container>
-          <Container>
-            <SiteCard />
-          </Container>
         </VStack>
       </Grid>
+      <Container>
+        <SiteGrid />
+      </Container>
       <NotesApp />
     </Box>
   );
