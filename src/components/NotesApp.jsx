@@ -3,61 +3,65 @@ import {
   FormControl,
   Button,
   FormLabel,
-  FormHelperText,
   Card,
   CardHeader,
   Center,
-  HStack,
-  Box,
+  Text,
   CardBody,
+  CardFooter,
   Show,
   Divider,
-  IconButton,
 } from '@chakra-ui/react';
-import { CloseIcon } from '@chakra-ui/icons';
-import React from 'react';
+import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons';
+import React, { useState } from 'react';
 
 function NotesApp() {
-  let [value, setValue] = React.useState(localStorage.getItem('notes'));
+  const [value, setValue] = React.useState(localStorage.getItem('notes'));
+  let [openNotes, setOpenNotes] = useState(false);
+
   let handleInputChange = e => {
     let inputValue = e.target.value;
     setValue(inputValue);
     localStorage.setItem('notes', inputValue);
   };
+  const onOpenClose = () => {
+    setOpenNotes(!openNotes);
+  };
+
+  const notesCardOpen = (
+    <>
+      <Divider />
+      <CardBody>
+        <FormControl>
+          <FormLabel>Notes</FormLabel>
+          <Textarea
+            height={'max-content'}
+            value={value}
+            onChange={handleInputChange}
+            size="sm"
+            variant={'filled'}
+          />
+          <Button mt={4} disabled>
+            Send to yourself
+          </Button>
+        </FormControl>
+      </CardBody>
+      <CardFooter>
+        <Text fontSize={'xs'} color={'silver'} maxW={'45ch'} margin={'auto'}>
+          notes are not visible to anyone except anyone looking over your
+          shoulder. data is stored in your local browser only
+        </Text>
+      </CardFooter>
+    </>
+  );
   return (
     <Show above="sm">
-      <Card maxW="md" variant={'elevated'}>
-        <CardHeader>
-          <Center>
-            <HStack>
-              <Box>Save a note for yourself</Box>
-              <Box>
-                <IconButton>
-                  <CloseIcon />
-                </IconButton>
-              </Box>
-            </HStack>
-          </Center>
-        </CardHeader>
-        <Divider />
-        <CardBody>
-          <FormControl>
-            <FormLabel>Notes</FormLabel>
-            <Textarea
-              height={'max-content'}
-              value={value}
-              onChange={handleInputChange}
-              size="sm"
-              variant={'filled'}
-            />
-            <FormHelperText fontSize={'xs'}>
-              notes are not visible to anyone except anyone looking over your
-              shoulder. data is stored in your local browser only. unless you
-              send them to yourself with the button below...
-            </FormHelperText>
-            <Button mt={4}>Send to yourself</Button>
-          </FormControl>
-        </CardBody>
+      <Card w="md" bottom="0" pos="fixed">
+        {openNotes && notesCardOpen}
+        <Button onClick={onOpenClose}>
+          <Text p="2">Save a note for yourself</Text>
+          {openNotes === true ? <TriangleDownIcon /> : <TriangleUpIcon />}
+        </Button>
       </Card>
     </Show>
   );
