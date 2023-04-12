@@ -9,7 +9,7 @@ import {
   LinkOverlay,
 } from '@chakra-ui/react';
 
-function SiteCard({ id, name, url, desc, urlShort, lang, img }) {
+function SiteCard({ id, name, url, desc, urlShort, lang, img, ...rest }) {
   // Deal with multiple languages
   let langs = [];
   for (let i = 0; i < lang.length; i++) {
@@ -21,7 +21,7 @@ function SiteCard({ id, name, url, desc, urlShort, lang, img }) {
   }
 
   return (
-    <LinkBox as="article">
+    <LinkBox {...rest} as="article">
       <Box height={'100%'} p="5" borderWidth="1px" borderRadius="md" id={id}>
         <Image
           borderRadius="md"

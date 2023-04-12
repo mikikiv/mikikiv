@@ -39,9 +39,10 @@ function NotesApp() {
             size="sm"
             variant={'filled'}
           />
-          <Button mt={4} disabled>
+          {/* @todo maybe someday we make this send an email or text
+           <Button mt={4} disabled>
             Send to yourself
-          </Button>
+          </Button> */}
         </FormControl>
       </CardBody>
       <CardFooter>

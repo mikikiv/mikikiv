@@ -2,7 +2,7 @@ import React from 'react';
 import SiteCard from './SiteCard';
 import { VStack, Box } from '@chakra-ui/react';
 
-function SiteGrid() {
+function SiteGrid({ ...rest }) {
   const examples = [
     {
       id: 2,
@@ -34,20 +34,22 @@ function SiteGrid() {
   ];
 
   return (
-    <VStack mb={12} columns={2} rowGap={7} columnGap={7}>
-      {examples.map(example => (
-        <Box>
-          <SiteCard
-            id={example.id}
-            name={example.name}
-            url={example.url}
-            desc={example.desc}
-            lang={example.lang.map(io => io)}
-            urlShort={example.urlShort}
-            img={example.img}
-          />
-        </Box>
-      ))}
+    <VStack {...rest} mb={12} columns={2} rowGap={7} columnGap={7}>
+      {examples
+        .sort((a, b) => a.id - b.id)
+        .map(example => (
+          <Box>
+            <SiteCard
+              id={example.id}
+              name={example.name}
+              url={example.url}
+              desc={example.desc}
+              lang={example.lang.map(io => io)}
+              urlShort={example.urlShort}
+              img={example.img}
+            />
+          </Box>
+        ))}
     </VStack>
   );
 }
