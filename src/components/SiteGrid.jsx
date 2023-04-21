@@ -27,7 +27,7 @@ function SiteGrid({ ...rest }) {
       name: 'CareMatey',
       url: 'https://carematey.com/',
       desc: 'A web application for pet parents to store their pet care information',
-      lang: ['React', 'Nextjs', 'Chakra-ui', 'Stripe', 'Prisma'],
+      lang: ['React', 'Typescript', 'Nextjs', 'Chakra-ui', 'Stripe', 'Prisma'],
       urlShort: 'carematey.com',
       img: '/sitePhotos/carematey.png',
     },
