@@ -22,7 +22,7 @@ function SiteCard({ id, name, url, desc, urlShort, lang, img, ...rest }) {
 
   return (
     <LinkBox {...rest} as="article">
-      <Box height={'100%'} p="5" borderWidth="1px" borderRadius="md" id={id}>
+      <Box maxW={'100%'} height={'100%'} p="5" borderWidth="1px" borderRadius="md" id={id}>
         <Image
           borderRadius="md"
           src={img}
