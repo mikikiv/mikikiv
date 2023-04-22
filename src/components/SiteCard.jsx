@@ -7,6 +7,7 @@ import {
   Box,
   LinkBox,
   LinkOverlay,
+  HStack,
 } from '@chakra-ui/react';
 
 function SiteCard({ id, name, url, desc, urlShort, lang, img, ...rest }) {
@@ -22,29 +23,36 @@ function SiteCard({ id, name, url, desc, urlShort, lang, img, ...rest }) {
 
   return (
     <LinkBox {...rest} as="article">
-      <Box maxW={'100%'} height={'100%'} p="5" borderWidth="1px" borderRadius="md" id={id}>
+      <Box
+        maxW={'100%'}
+        height={'100%'}
+        p="5"
+        borderWidth="1px"
+        borderRadius="md"
+        id={id}
+      >
         <Image
           borderRadius="md"
           src={img}
           borderStyle={'solid'}
           borderWidth="1px"
         />
-        <Flex align="baseline" mt={2}>
-          {langs}
-
+        <HStack width={'100%'} justifyContent={'space-between'}>
+          <Box align="baseline" mt={2}>
+            {langs}
+          </Box>
           <LinkOverlay
             textTransform="lowercase"
             fontSize="xs"
             fontWeight="bold"
             color="green.500"
             mt={2}
-            ml={2}
             href={url}
             isExternal
           >
             {urlShort}
           </LinkOverlay>
-        </Flex>
+        </HStack>
         <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
           {name}
         </Text>
