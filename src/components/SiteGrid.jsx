@@ -2,10 +2,16 @@ import React from 'react';
 import SiteCard from './SiteCard';
 import { VStack, Box } from '@chakra-ui/react';
 
+import Airtable from 'airtable';
+
 function SiteGrid({ ...rest }) {
+  // get data from airtable
+  // Airtable.configure({ apiKey: process.env.AIRTABLE_SECRET_KEY });
+  console.log(process.env.AIRTABLE_SECRET_KEY);
+
   const examples = [
     {
-      id: 2,
+      id: 3,
       name: 'PetSitting Website',
       url: 'https://home.taylerandmikey.com/',
       desc: 'Built with React components with Docusaurus, a simple website about how a guest would watch my pets',
@@ -14,7 +20,7 @@ function SiteGrid({ ...rest }) {
       img: '/sitePhotos/petsite.png',
     },
     {
-      id: 3,
+      id: 4,
       name: 'Youth Track Club',
       url: 'https://amazondistanceproject.org/',
       desc: 'A Wordpress site for managing youth sport team',
@@ -30,6 +36,16 @@ function SiteGrid({ ...rest }) {
       lang: ['React', 'Typescript', 'Nextjs', 'Chakra-ui', 'Stripe', 'Prisma'],
       urlShort: 'carematey.com',
       img: '/sitePhotos/carematey.png',
+    },
+    {
+      id: 2,
+      name: 'QuickLorem.dev',
+      url: 'https://quicklorem.dev/',
+      desc: 'The fastest tool for getting lorem ipsum',
+      lang: ['React', 'Typescript', 'Nextjs', 'Mantine'],
+      urlShort: 'quicklorem.dev',
+      repo: 'https://github.com/mikikiv/quicklorem',
+      img: '/sitePhotos/quicklorem.png',
     },
   ];
 
@@ -47,6 +63,7 @@ function SiteGrid({ ...rest }) {
               lang={example.lang.map(io => io)}
               urlShort={example.urlShort}
               img={example.img}
+              repo={example.repo}
             />
           </Box>
         ))}

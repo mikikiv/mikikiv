@@ -8,9 +8,11 @@ import {
   LinkBox,
   LinkOverlay,
   HStack,
+  Button,
 } from '@chakra-ui/react';
+import { GoMarkGithub } from 'react-icons/go';
 
-function SiteCard({ id, name, url, desc, urlShort, lang, img, ...rest }) {
+function SiteCard({ id, name, url, desc, urlShort, lang, img, repo, ...rest }) {
   // Deal with multiple languages
   let langs = [];
   for (let i = 0; i < lang.length; i++) {
@@ -41,17 +43,34 @@ function SiteCard({ id, name, url, desc, urlShort, lang, img, ...rest }) {
           <Box align="baseline" mt={2}>
             {langs}
           </Box>
-          <LinkOverlay
-            textTransform="lowercase"
-            fontSize="xs"
-            fontWeight="bold"
-            color="green.500"
-            mt={2}
-            href={url}
-            isExternal
-          >
-            {urlShort}
-          </LinkOverlay>
+          <Box pt={1}>
+            {repo && (
+              <LinkOverlay
+                textTransform="lowercase"
+                fontSize="xs"
+                fontWeight="bold"
+                color="green.500"
+                mt={2}
+                href={repo}
+                isExternal
+              >
+                <Button variant={'solid'} leftIcon={<GoMarkGithub />} mr={1}>
+                  OpenSource
+                </Button>
+              </LinkOverlay>
+            )}
+            <LinkOverlay
+              textTransform="lowercase"
+              fontSize="xs"
+              fontWeight="bold"
+              color="green.500"
+              mt={2}
+              href={url}
+              isExternal
+            >
+              <Button variant={'outline'}>{urlShort}</Button>
+            </LinkOverlay>
+          </Box>
         </HStack>
         <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
           {name}
