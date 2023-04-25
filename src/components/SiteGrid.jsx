@@ -2,12 +2,11 @@ import React from 'react';
 import SiteCard from './SiteCard';
 import { VStack, Box } from '@chakra-ui/react';
 
-import Airtable from 'airtable';
+// import Airtable from 'airtable';
 
 function SiteGrid({ ...rest }) {
   // get data from airtable
   // Airtable.configure({ apiKey: process.env.AIRTABLE_SECRET_KEY });
-  console.log(process.env.AIRTABLE_SECRET_KEY);
 
   const examples = [
     {
