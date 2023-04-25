@@ -6,9 +6,10 @@ import {
   Text,
   Box,
   LinkBox,
-  LinkOverlay,
   HStack,
   Button,
+  Link,
+  LinkOverlay,
 } from '@chakra-ui/react';
 import { GoMarkGithub } from 'react-icons/go';
 
@@ -24,7 +25,7 @@ function SiteCard({ id, name, url, desc, urlShort, lang, img, repo, ...rest }) {
   }
 
   return (
-    <LinkBox {...rest} as="article">
+    <LinkBox as="article" {...rest}>
       <Box
         maxW={'100%'}
         height={'100%'}
@@ -45,7 +46,7 @@ function SiteCard({ id, name, url, desc, urlShort, lang, img, repo, ...rest }) {
           </Box>
           <Box pt={1}>
             {repo && (
-              <LinkOverlay
+              <Link
                 textTransform="lowercase"
                 fontSize="xs"
                 fontWeight="bold"
@@ -57,7 +58,7 @@ function SiteCard({ id, name, url, desc, urlShort, lang, img, repo, ...rest }) {
                 <Button variant={'solid'} leftIcon={<GoMarkGithub />} mr={1}>
                   OpenSource
                 </Button>
-              </LinkOverlay>
+              </Link>
             )}
             <LinkOverlay
               textTransform="lowercase"
