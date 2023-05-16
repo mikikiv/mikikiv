@@ -38,9 +38,8 @@ function App() {
               </Link>
             </VStack>
           </HStack>
-          <Container fontSize={'md'} size={'sm'}>
-            Software developer specializing in tests. But also can do a lot of
-            this and that...
+          <Container fontSize={'md'} size={'sm'} h={'auto'}>
+            Some of my projects...
           </Container>
         </VStack>
       </Grid>
