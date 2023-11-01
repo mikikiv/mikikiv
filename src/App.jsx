@@ -34,7 +34,26 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Visit my GitHub
+                GitHub
+              </Link>
+              {" | "}
+              <Link
+                color="teal.500"
+                href="https://www.linkedin.com/in/mikeyvillavicencio"
+                fontSize="md"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </Link>
+              {" | "}
+              <Link
+                color="teal.500"
+                href="https://substack.com/@mikikiv"
+                fontSize="md"
+                target="_blank"
+              >
+                Substack
               </Link>
             </VStack>
           </HStack>
