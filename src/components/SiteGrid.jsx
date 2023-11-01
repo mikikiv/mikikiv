@@ -28,7 +28,7 @@ function SiteGrid({ ...rest }) {
       img: '/sitePhotos/adp.png',
     },
     {
-      id: 1,
+      id: 2,
       name: 'CareMatey',
       url: 'https://carematey.com/',
       desc: 'A web application for pet parents to store their pet care information',
@@ -37,12 +37,14 @@ function SiteGrid({ ...rest }) {
       img: '/sitePhotos/carematey.png',
     },
     {
-      id: 2,
+      id: 1,
       name: 'QuickLorem.dev',
       url: 'https://quicklorem.dev/',
       desc: 'The fastest tool for getting lorem ipsum. A browser extension and webtool.',
       lang: ['React', 'Typescript', 'Nextjs', 'Mantine', 'Chrome Extensions'],
       urlShort: 'quicklorem.dev',
+      url2: 'https://chrome.google.com/webstore/detail/aliasipsum/gpbdnbechbkbfbdbhcbllejhgggnmena',
+      urlShort2: 'Chrome Extensions',
       repo: 'https://github.com/mikikiv/quicklorem',
       img: '/sitePhotos/quicklorem.png',
     },
@@ -58,9 +60,11 @@ function SiteGrid({ ...rest }) {
               id={example.id}
               name={example.name}
               url={example.url}
+              url2={example.url2}
               desc={example.desc}
               lang={example.lang.map(io => io)}
               urlShort={example.urlShort}
+              urlShort2={example.urlShort2}
               img={example.img}
               repo={example.repo}
             />

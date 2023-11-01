@@ -10,10 +10,11 @@ import {
   Button,
   Link,
   LinkOverlay,
+  VStack,
 } from '@chakra-ui/react';
 import { GoMarkGithub } from 'react-icons/go';
 
-function SiteCard({ id, name, url, desc, urlShort, lang, img, repo, ...rest }) {
+function SiteCard({ id, name, url, url2, desc, urlShort, urlShort2, lang, img, repo, ...rest }) {
   // Deal with multiple languages
   let langs = [];
   for (let i = 0; i < lang.length; i++) {
@@ -45,15 +46,17 @@ function SiteCard({ id, name, url, desc, urlShort, lang, img, repo, ...rest }) {
             {langs}
           </Box>
           <Box pt={1}>
+            <VStack>
+
             {repo && (
               <Link
-                textTransform="lowercase"
-                fontSize="xs"
-                fontWeight="bold"
-                color="green.500"
-                mt={2}
-                href={repo}
-                isExternal
+              textTransform="lowercase"
+              fontSize="xs"
+              fontWeight="bold"
+              color="green.500"
+              mt={2}
+              href={repo}
+              isExternal
               >
                 <Button variant={'solid'} leftIcon={<GoMarkGithub />} mr={1}>
                   OpenSource
@@ -68,9 +71,23 @@ function SiteCard({ id, name, url, desc, urlShort, lang, img, repo, ...rest }) {
               mt={2}
               href={url}
               isExternal
-            >
+              >
               <Button variant={'outline'}>{urlShort}</Button>
             </LinkOverlay>
+            {url2 &&
+              <Link
+              textTransform="lowercase"
+              fontSize="xs"
+              fontWeight="bold"
+              color="green.500"
+              mt={2}
+              href={url2}
+              isExternal
+              >
+                <Button variant={'outline'}>{urlShort2}</Button>
+              </Link>
+            }
+            </VStack>
           </Box>
         </HStack>
         <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
