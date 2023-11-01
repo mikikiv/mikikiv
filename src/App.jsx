@@ -8,10 +8,14 @@ import {
   Heading,
   Container,
   HStack,
+  Button,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import NotesApp from './components/NotesApp';
 import SiteGrid from './components/SiteGrid';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiSubstack } from '@icons-pack/react-simple-icons';
+
 
 function App() {
   return (
@@ -27,38 +31,42 @@ function App() {
             />
             <VStack alignItems={'left'}>
               <Heading size={'md'}>Mikey Villavicencio</Heading>
+              <HStack>
               <Link
                 color="teal.500"
                 href="https://github.com/mikikiv"
                 fontSize="md"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                GitHub
-              </Link>
-              {" | "}
+                >
+                  <Button leftIcon={<FaGithub />}>
+                    GitHub
+                  </Button>
+                </Link>
               <Link
                 color="teal.500"
                 href="https://www.linkedin.com/in/mikeyvillavicencio"
                 fontSize="md"
                 target="_blank"
                 rel="noopener noreferrer"
-              >
-                LinkedIn
-              </Link>
-              {" | "}
+                >
+                  <Button leftIcon={<FaLinkedin />}>LinkedIn</Button>
+                </Link>
               <Link
                 color="teal.500"
                 href="https://substack.com/@mikikiv"
                 fontSize="md"
                 target="_blank"
-              >
-                Substack
+                >
+                  <Button leftIcon={<SiSubstack />}>
+                    Substack
+                  </Button>
               </Link>
+              </HStack>
             </VStack>
           </HStack>
           <Container fontSize={'md'} size={'sm'} h={'auto'}>
-            Some of my projects...
+            I'm a software engineer specializing in testing and test automation. Sometimes, I work on the development of web applications and websites.
           </Container>
         </VStack>
       </Grid>
