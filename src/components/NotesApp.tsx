@@ -14,10 +14,10 @@ import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons';
 import React, { useState } from 'react';
 
 function NotesApp() {
-  const [value, setValue] = React.useState(localStorage.getItem('notes'));
+  const [value, setValue] = useState(localStorage.getItem('notes') || '');
   let [openNotes, setOpenNotes] = useState(false);
 
-  let handleInputChange = e => {
+  let handleInputChange = (e: any) => {
     let inputValue = e.target.value;
     setValue(inputValue);
     localStorage.setItem('notes', inputValue);
