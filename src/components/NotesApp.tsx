@@ -55,7 +55,15 @@ function NotesApp() {
   );
   return (
     <Show above="sm">
-      <Card w="md" bottom="0" pos="fixed">
+      <Card
+        w="md"
+        bottom="0"
+        pos="fixed"
+        zIndex={'overlay'}
+        borderRadius={'lg'}
+        border={'2px solid'}
+        borderColor={'blue.200'}
+      >
         {openNotes && notesCardOpen}
         <Button onClick={onOpenClose}>
           <Text p="2">Save a note for yourself</Text>

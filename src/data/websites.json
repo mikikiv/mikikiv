@@ -1,0 +1,73 @@
+[
+  {
+    "id": 3,
+    "name": "PetSitting Website",
+    "links": [
+      {
+        "href": "https://home.taylerandmikey.com/",
+        "label": "Home.TaylerAndMikey.com",
+        "overlay": true
+      }
+    ],
+    "desc": "Built with React components with Docusaurus, a simple website about how a guest would watch my pets",
+    "lang": ["React"],
+    "img": "/sitePhotos/petsite.png",
+    "enabled": true
+  },
+  {
+    "id": 4,
+    "name": "Youth Track Club",
+    "desc": "A Wordpress site for managing youth sport team",
+    "lang": ["Wordpress"],
+    "img": "/sitePhotos/adp.png",
+    "enabled": true,
+    "links": [
+      {
+        "href": "https://amazondistanceproject.org/",
+        "label": "AmazonDistanceProject.org",
+        "overlay": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "CareMatey",
+    "desc": "A web application for pet parents to store their pet care information",
+    "lang": ["React", "Typescript", "Nextjs", "Chakra-ui", "Stripe", "Prisma"],
+    "img": "/sitePhotos/carematey.png",
+    "enabled": true,
+    "links": [
+      {
+        "href": "https://carematey.com/",
+        "label": "CareMatey.com",
+        "overlay": true
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "QuickLorem.dev",
+    "desc": "The fastest tool for getting lorem ipsum. A browser extension and webtool.",
+    "lang": ["React", "Typescript", "Nextjs", "Mantine", "Chrome Extensions"],
+    "img": "/sitePhotos/quicklorem.png",
+    "enabled": true,
+    "links": [
+      {
+        "href": "https://quicklorem.dev/",
+        "label": "QuickLorem.dev",
+        "overlay": true
+      },
+      {
+        "href": "https://github.com/mikikiv/quicklorem",
+        "label": "Github",
+        "overlay": false,
+        "icon": "FaGithub"
+      },
+      {
+        "href": "https://chrome.google.com/webstore/detail/aliasipsum/gpbdnbechbkbfbdbhcbllejhgggnmena",
+        "label": "Chrome Extensions",
+        "overlay": false
+      }
+    ]
+  }
+]

@@ -6,14 +6,14 @@ import { Box, GridItem, SimpleGrid } from '@chakra-ui/react';
 
 function SiteGrid({ ...rest }) {
   // get data from src/examples.json
-  const examples: SiteCardProps[] = require('../examples.json');
+  const examples: SiteCardProps[] = require('../data/websites.json');
 
   return (
     <SimpleGrid
       mb={12}
       rowGap={7}
       columnGap={7}
-      minChildWidth={'500px'}
+      minChildWidth={{ base: '100%', md: '40%', lg: '30%' }}
       {...rest}
     >
       {examples
@@ -27,14 +27,10 @@ function SiteGrid({ ...rest }) {
               <SiteCard
                 id={example.id}
                 name={example.name}
-                url={example.url}
-                url2={example.url2}
+                links={example.links}
                 desc={example.desc}
                 lang={example.lang.map(io => io)}
-                urlShort={example.urlShort}
-                urlShort2={example.urlShort2}
                 img={example.img}
-                repo={example.repo}
                 {...rest}
               />
             </Box>

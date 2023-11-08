@@ -1,129 +1,89 @@
 import React from 'react';
 import {
   Image,
-  Flex,
   Badge,
   Text,
   Box,
   LinkBox,
-  HStack,
-  Button,
-  Link,
-  LinkOverlay,
   VStack,
+  Wrap,
+  useColorModeValue,
 } from '@chakra-ui/react';
-import { GoMarkGithub } from 'react-icons/go';
+import { LinkButton, LinkButtonProps } from './Buttons/LinkButton';
 
 export type SiteCardProps = {
   id: number;
   name: string;
-  url: string;
-  url2?: string;
+  links: LinkButtonProps[];
   desc: string;
-  urlShort: string;
-  urlShort2?: string;
   lang: string[];
   img: string;
-  repo?: string;
   enabled?: boolean;
   [key: string]: any;
 };
 
-export function SiteCard({
+export const SiteCard = ({
   id,
   name,
-  url,
-  url2,
+  links,
   desc,
-  urlShort,
-  urlShort2,
   lang,
   img,
-  repo,
   ...rest
-}: SiteCardProps) {
-  const LanguageBadge = (languages: String[]): React.ReactNode => {
-    return languages.map(language => {
-      return (
-        <Badge fontSize={'xs'} mr={1} colorScheme={'green'}>
-          {language as String}
-        </Badge>
-      );
-    });
-  };
-
+}: SiteCardProps) => {
   return (
     <LinkBox as="article" {...rest}>
-      <Box
+      <VStack
+        bg={useColorModeValue('gray.100', 'gray.700')}
         p="5"
         borderWidth="1px"
         borderRadius="md"
         id={id.toString()}
+        justify={'space-between'}
         {...rest}
       >
-        <Image
-          borderRadius="md"
-          src={img}
-          borderStyle={'solid'}
-          borderWidth="1px"
-        />
-        <HStack width={'100%'} justifyContent={'space-between'}>
-          <VStack align="left" spacing={1}>
-            <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
-              {name}
-            </Text>
-            <Flex mt={2} align="center">
-              <Text mx={2} fontSize="sm">
-                {desc}
-              </Text>
-            </Flex>
-          </VStack>
-          <Box>
-            <VStack className="links">
-              {repo && (
-                <Link
-                  textTransform="lowercase"
-                  fontSize="xs"
-                  fontWeight="bold"
-                  color="green.500"
-                  mt={2}
-                  href={repo}
-                  isExternal
-                >
-                  <Button variant={'solid'} leftIcon={<GoMarkGithub />} mr={1}>
-                    OpenSource
-                  </Button>
-                </Link>
-              )}
-              <LinkOverlay
-                textTransform="lowercase"
-                fontSize="xs"
-                fontWeight="bold"
-                color="green.500"
-                mt={2}
-                href={url}
-                isExternal
-              >
-                <Button variant={'outline'}>{urlShort}</Button>
-              </LinkOverlay>
-              {url2 && (
-                <Link
-                  textTransform="lowercase"
-                  fontSize="xs"
-                  fontWeight="bold"
-                  color="green.500"
-                  mt={2}
-                  href={url2}
-                  isExternal
-                >
-                  <Button variant={'outline'}>{urlShort2}</Button>
-                </Link>
-              )}
-            </VStack>
-          </Box>
-        </HStack>
-        {lang ? <Box mt={2}>{LanguageBadge(lang)}</Box> : null}
-      </Box>
+        <Box>
+          <Image
+            borderRadius="md"
+            src={img}
+            borderStyle={'solid'}
+            borderWidth="1px"
+          />
+          <Text my={4} fontSize="xl" fontWeight="semibold" align={'center'}>
+            {name}
+          </Text>
+          <Text mx={4} fontSize="md" align={'center'}>
+            {desc}
+          </Text>
+        </Box>
+        <Box>
+          <Wrap className="links" justify={'center'}>
+            {links.map(link => {
+              return (
+                <LinkButton
+                  key={link.label}
+                  href={link.href}
+                  label={link.label}
+                  overlay={!!link.overlay}
+                  icon={link.icon && link.icon}
+                />
+              );
+            })}
+          </Wrap>
+        </Box>
+
+        {lang ? (
+          <Wrap mt={2} mx={10} justify={'space-evenly'}>
+            {lang.map(language => {
+              return (
+                <Badge fontSize={'xs'} px={2} colorScheme={'green'}>
+                  {language}
+                </Badge>
+              );
+            })}
+          </Wrap>
+        ) : null}
+      </VStack>
     </LinkBox>
   );
-}
+};
