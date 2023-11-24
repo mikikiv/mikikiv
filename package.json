@@ -27,6 +27,7 @@
     "build": "react-scripts build",
     "e2e": "cypress e2e",
     "test": "react-scripts test",
+    "e2e": "cypress run",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
