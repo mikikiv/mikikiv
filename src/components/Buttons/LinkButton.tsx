@@ -1,6 +1,5 @@
 import { Button, Link, LinkOverlay } from '@chakra-ui/react';
-import { SiSubstack } from '@icons-pack/react-simple-icons';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 
 export type LinkButtonProps = {
   href: string;
@@ -8,7 +7,7 @@ export type LinkButtonProps = {
   overlay?: boolean;
   target?: string;
   rel?: string;
-  icon?: any;
+  icon?: React.JSX.Element;
 };
 
 export const LinkButton = ({
@@ -18,22 +17,6 @@ export const LinkButton = ({
   overlay,
   ...rest
 }: LinkButtonProps) => {
-  const IconButton = (icon: String) => {
-    switch (icon) {
-      case 'FaGithub':
-        return <FaGithub />;
-
-      case 'FaLinkedin':
-        return <FaLinkedin />;
-
-      case 'SiSubstack':
-        return <SiSubstack />;
-
-      default:
-        return <></>;
-    }
-  };
-
   return (
     <>
       {overlay ? (
@@ -48,8 +31,10 @@ export const LinkButton = ({
           {...rest}
         >
           <Button
-            variant={!!icon ? 'solid' : 'outline'}
-            leftIcon={IconButton(icon)}
+            className="linkButton"
+            data-linkId={label}
+            variant={!icon ? 'outline' : 'solid'}
+            leftIcon={icon}
           >
             {label}
           </Button>
@@ -66,8 +51,20 @@ export const LinkButton = ({
           {...rest}
         >
           <Button
+            className="linkButton"
+            data-linkId={label}
             variant={icon ? 'solid' : 'outline'}
-            leftIcon={IconButton(icon)}
+            leftIcon={
+              icon ? (
+                typeof icon === 'string' ? (
+                  icon === '<FaGithub />' ? (
+                    <FaGithub />
+                  ) : undefined
+                ) : (
+                  icon
+                )
+              ) : undefined
+            }
           >
             {label}
           </Button>

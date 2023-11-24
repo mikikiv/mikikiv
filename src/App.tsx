@@ -14,23 +14,30 @@ import NotesApp from './components/NotesApp';
 import SiteGrid from './components/SiteGrid';
 import './App.css';
 import { LinkButton } from './components/Buttons/LinkButton';
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiSubstack } from '@icons-pack/react-simple-icons';
 
 function App() {
   const links = [
     {
       name: 'GitHub',
       url: 'https://github.com/mikikiv',
-      icon: 'FaGithub',
+      icon: <FaGithub />,
     },
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/mikeyvillavicencio',
-      icon: 'FaLinkedin',
+      icon: <FaLinkedin />,
     },
     {
       name: 'Substack',
       url: 'https://substack.com/@mikikiv',
-      icon: 'SiSubstack',
+      icon: <SiSubstack />,
+    },
+    {
+      name: 'Email',
+      url: 'mailto:villavicem@gmail.com',
+      icon: <FaEnvelope />,
     },
   ];
 
@@ -40,7 +47,7 @@ function App() {
         <ColorModeSwitcher justifySelf="flex-end" pos={'fixed'} />
       </Box>
       <Container maxW={'container.xl'}>
-        <Container className="aboutSection">
+        <Box className="aboutSection" pb={6}>
           <Center>
             <Avatar
               size={'2xl'}
@@ -50,6 +57,8 @@ function App() {
           </Center>
           <Heading
             size={'lg'}
+            as={'h1'}
+            id="name"
             mt={4}
             textAlign={'center'}
             fontFamily={'JetBrainsMono'}
@@ -71,6 +80,7 @@ function App() {
               }}
               textAlign={'center'}
               fontSize={'md'}
+              id="bio"
             >
               {
                 "I'm a software engineer specializing in testing and test automation. Sometimes, I work on the development of web applications and websites."
@@ -81,7 +91,7 @@ function App() {
                 <LinkButton
                   key={link.name}
                   href={link.url}
-                  target="_blank"
+                  target={link.name === 'email' ? '_top' : '_blank'}
                   rel="noopener noreferrer"
                   icon={link.icon}
                   label={link.name}
@@ -89,7 +99,7 @@ function App() {
               ))}
             </Wrap>
           </SimpleGrid>
-        </Container>
+        </Box>
         <SiteGrid height="100%" />
       </Container>
       <NotesApp />

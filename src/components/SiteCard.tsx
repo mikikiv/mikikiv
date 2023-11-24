@@ -34,6 +34,7 @@ export const SiteCard = ({
   return (
     <LinkBox as="article" {...rest}>
       <VStack
+        className="siteCard"
         bg={useColorModeValue('gray.100', 'gray.700')}
         p="5"
         borderWidth="1px"
@@ -49,10 +50,21 @@ export const SiteCard = ({
             borderStyle={'solid'}
             borderWidth="1px"
           />
-          <Text my={4} fontSize="xl" fontWeight="semibold" align={'center'}>
+          <Text
+            my={4}
+            fontSize="xl"
+            fontWeight="semibold"
+            align={'center'}
+            className={'siteName'}
+          >
             {name}
           </Text>
-          <Text mx={4} fontSize="md" align={'center'}>
+          <Text
+            mx={4}
+            fontSize="md"
+            align={'center'}
+            className={'siteDescription'}
+          >
             {desc}
           </Text>
         </Box>
@@ -65,7 +77,7 @@ export const SiteCard = ({
                   href={link.href}
                   label={link.label}
                   overlay={!!link.overlay}
-                  icon={link.icon && link.icon}
+                  icon={link.icon && (link.icon as React.JSX.Element)}
                 />
               );
             })}
@@ -76,7 +88,13 @@ export const SiteCard = ({
           <Wrap mt={2} mx={10} justify={'space-evenly'}>
             {lang.map(language => {
               return (
-                <Badge fontSize={'xs'} px={2} colorScheme={'green'}>
+                <Badge
+                  className="languageBadge"
+                  key={language}
+                  fontSize={'xs'}
+                  px={2}
+                  colorScheme={'green'}
+                >
                   {language}
                 </Badge>
               );
