@@ -1,5 +1,5 @@
 import { Button, Link, LinkOverlay } from '@chakra-ui/react';
-import { ReactElement } from 'react';
+import { FaGithub } from 'react-icons/fa';
 
 export type LinkButtonProps = {
   href: string;
@@ -7,7 +7,7 @@ export type LinkButtonProps = {
   overlay?: boolean;
   target?: string;
   rel?: string;
-  icon?: ReactElement;
+  icon?: React.JSX.Element;
 };
 
 export const LinkButton = ({
@@ -33,7 +33,7 @@ export const LinkButton = ({
           <Button
             className="linkButton"
             data-linkId={label}
-            variant={!!icon ? 'solid' : 'outline'}
+            variant={!icon ? 'outline' : 'solid'}
             leftIcon={icon}
           >
             {label}
@@ -54,7 +54,17 @@ export const LinkButton = ({
             className="linkButton"
             data-linkId={label}
             variant={icon ? 'solid' : 'outline'}
-            leftIcon={icon}
+            leftIcon={
+              icon ? (
+                typeof icon === 'string' ? (
+                  icon === '<FaGithub />' ? (
+                    <FaGithub />
+                  ) : undefined
+                ) : (
+                  icon
+                )
+              ) : undefined
+            }
           >
             {label}
           </Button>

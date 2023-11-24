@@ -77,7 +77,7 @@ export const SiteCard = ({
                   href={link.href}
                   label={link.label}
                   overlay={!!link.overlay}
-                  icon={link.icon && link.icon}
+                  icon={link.icon && (link.icon as React.JSX.Element)}
                 />
               );
             })}

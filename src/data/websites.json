@@ -61,7 +61,7 @@
         "href": "https://github.com/mikikiv/quicklorem",
         "label": "Github",
         "overlay": false,
-        "icon": "FaGithub"
+        "icon": "<FaGithub />"
       },
       {
         "href": "https://chrome.google.com/webstore/detail/aliasipsum/gpbdnbechbkbfbdbhcbllejhgggnmena",
