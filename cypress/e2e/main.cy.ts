@@ -11,7 +11,7 @@ describe('template spec', () => {
     { name: 'Substack', href: 'https://substack.com/@mikikiv' },
     { name: 'Email', href: 'mailto:villavicem@gmail.com' },
   ];
-  it.only('has the expected page top data', () => {
+  it('has the expected page top data', () => {
     cy.get('h1').should('contain', 'Mikey Villavicencio');
     cy.get('img[alt="Mikey Villavicencio"]')
       .invoke('attr', 'src')

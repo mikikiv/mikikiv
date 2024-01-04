@@ -17,15 +17,15 @@
   {
     "id": 4,
     "name": "Youth Track Club",
-    "desc": "A Wordpress site for managing youth sport team",
+    "desc": "A Wordpress site for managing youth sport team. \n December 2017 - December 2023",
     "lang": ["Wordpress"],
     "img": "/sitePhotos/adp.png",
     "enabled": true,
     "links": [
       {
-        "href": "https://amazondistanceproject.org/",
         "label": "AmazonDistanceProject.org",
-        "overlay": true
+        "overlay": false,
+        "disabled": true
       }
     ]
   },

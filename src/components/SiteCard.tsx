@@ -14,7 +14,7 @@ import { LinkButton, LinkButtonProps } from './Buttons/LinkButton';
 export type SiteCardProps = {
   id: number;
   name: string;
-  links: LinkButtonProps[];
+  links?: LinkButtonProps[];
   desc: string;
   lang: string[];
   img: string;
@@ -64,23 +64,26 @@ export const SiteCard = ({
             fontSize="md"
             align={'center'}
             className={'siteDescription'}
+            whiteSpace={'pre-wrap'}
           >
             {desc}
           </Text>
         </Box>
         <Box>
           <Wrap className="links" justify={'center'}>
-            {links.map(link => {
-              return (
-                <LinkButton
-                  key={link.label}
-                  href={link.href}
-                  label={link.label}
-                  overlay={!!link.overlay}
-                  icon={link.icon && (link.icon as React.JSX.Element)}
-                />
-              );
-            })}
+            {links &&
+              links.map(link => {
+                return (
+                  <LinkButton
+                    key={link.label}
+                    href={link.href}
+                    label={link.label}
+                    overlay={!!link.overlay}
+                    disabled={link.disabled && link.disabled}
+                    icon={link.icon && (link.icon as React.JSX.Element)}
+                  />
+                );
+              })}
           </Wrap>
         </Box>
 

@@ -8,6 +8,7 @@ export type LinkButtonProps = {
   target?: string;
   rel?: string;
   icon?: React.JSX.Element;
+  disabled?: boolean;
 };
 
 export const LinkButton = ({
@@ -15,6 +16,7 @@ export const LinkButton = ({
   label,
   icon,
   overlay,
+  disabled,
   ...rest
 }: LinkButtonProps) => {
   return (
@@ -32,9 +34,10 @@ export const LinkButton = ({
         >
           <Button
             className="linkButton"
-            data-linkId={label}
+            data-linkid={label}
             variant={!icon ? 'outline' : 'solid'}
             leftIcon={icon}
+            isDisabled={disabled}
           >
             {label}
           </Button>
@@ -52,8 +55,9 @@ export const LinkButton = ({
         >
           <Button
             className="linkButton"
-            data-linkId={label}
+            data-linkid={label}
             variant={icon ? 'solid' : 'outline'}
+            isDisabled={disabled}
             leftIcon={
               icon ? (
                 typeof icon === 'string' ? (

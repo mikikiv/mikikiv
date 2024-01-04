@@ -4,9 +4,9 @@ declare namespace Cypress {
   interface Chainable {
     /**
      *
-     * @param linkId the data-linkId attribute of the linkbutton
+     * @param linkid the data-linkid attribute of the linkbutton
      * @param href expected href value
      */
-    checkLinkButtonHref(linkId: string, href: string): Chainable<any>;
+    checkLinkButtonHref(linkid: string, href: string): Chainable<any>;
   }
 }

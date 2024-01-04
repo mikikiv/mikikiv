@@ -26,8 +26,8 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 //
 
-Cypress.Commands.add('checkLinkButtonHref', (linkId, href) => {
-  cy.get(`[data-linkId="${linkId}"]`)
+Cypress.Commands.add('checkLinkButtonHref', (linkid, href) => {
+  cy.get(`[data-linkid="${linkid}"]`)
     .should('be.visible')
     .parent()
     .should('have.attr', 'href', href);

@@ -22,7 +22,7 @@ function SiteGrid({ ...rest }) {
         )
         .sort((a, b) => a.id - b.id)
         .map(example => (
-          <GridItem>
+          <GridItem key={example.id}>
             <Box {...rest}>
               <SiteCard
                 id={example.id}
