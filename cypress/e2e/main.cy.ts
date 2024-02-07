@@ -30,4 +30,17 @@ describe('template spec', () => {
     cy.get('#colorSwitcher').click();
     cy.get('body').should('have.class', 'chakra-ui-light');
   });
+
+  it('can view the pdf viewer', () => {
+    cy.get('button').contains('View Resume').click();
+    cy.contains('Loading PDF').should('exist');
+    cy.get('.react-pdf__Page__canvas').should('exist');
+    cy.wait(300);
+    cy.contains('Loading PDF').should('not.exist');
+    cy.get('button').contains('Next Page').click();
+    cy.get('button').contains('Previous Page').click();
+    cy.get('[aria-label="close"]').click();
+    cy.get('.react-pdf__Page').should('not.exist');
+  });
 });
+

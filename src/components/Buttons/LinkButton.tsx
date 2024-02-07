@@ -23,10 +23,8 @@ export const LinkButton = ({
     <>
       {overlay ? (
         <LinkOverlay
-          textTransform="lowercase"
           fontSize="xs"
           fontWeight="bold"
-          color="green.500"
           mt={2}
           href={href}
           isExternal
@@ -44,10 +42,8 @@ export const LinkButton = ({
         </LinkOverlay>
       ) : (
         <Link
-          textTransform="lowercase"
           fontSize="xs"
           fontWeight="bold"
-          color="green.500"
           mt={2}
           href={href}
           isExternal
