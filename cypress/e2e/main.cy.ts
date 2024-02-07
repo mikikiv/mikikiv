@@ -23,7 +23,7 @@ describe('template spec', () => {
   });
 
   it('has the expected website examples', () => {
-    cy.get('.siteCard').should('have.length', 4);
+    cy.get('.siteCard').should('have.length', 5);
   });
 
   it('can update from dark to light mode', () => {
