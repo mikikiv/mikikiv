@@ -16,6 +16,7 @@ import './App.css';
 import { LinkButton } from './components/Buttons/LinkButton';
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiSubstack } from '@icons-pack/react-simple-icons';
+import ResumeViewer from './components/ResumeViewer';
 
 function App() {
   const links = [
@@ -97,6 +98,7 @@ function App() {
                   label={link.name}
                 />
               ))}
+              <ResumeViewer />
             </Wrap>
           </SimpleGrid>
         </Box>
