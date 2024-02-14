@@ -37,7 +37,7 @@ function App() {
     },
     {
       name: 'Email',
-      url: 'mailto:villavicem@gmail.com',
+      url: 'mailto:mikey.v.dev@gmail.com',
       icon: <FaEnvelope />,
     },
   ];
