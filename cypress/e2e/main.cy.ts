@@ -9,7 +9,7 @@ describe('template spec', () => {
       href: 'https://www.linkedin.com/in/mikeyvillavicencio',
     },
     { name: 'Substack', href: 'https://substack.com/@mikikiv' },
-    { name: 'Email', href: 'mailto:villavicem@gmail.com' },
+    { name: 'Email', href: 'mailto:mikey.v.dev@gmail.com' },
   ];
   it('has the expected page top data', () => {
     cy.get('h1').should('contain', 'Mikey Villavicencio');
