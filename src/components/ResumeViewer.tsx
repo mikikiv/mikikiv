@@ -1,8 +1,9 @@
 import {
   Box,
   Button,
-  CloseButton,
+  Container,
   Flex,
+  HStack,
   Modal,
   ModalBody,
   ModalContent,
@@ -10,24 +11,15 @@ import {
   ModalOverlay,
   useDisclosure,
 } from '@chakra-ui/react';
-import { useState } from 'react';
 import { FaFilePdf } from 'react-icons/fa';
-import { Document, Page, pdfjs } from 'react-pdf';
+import { Viewer, Worker } from '@react-pdf-viewer/core';
+import { CloseIcon, DownloadIcon } from '@chakra-ui/icons';
 
 const url = '/MikeyVillavicencio.pdf';
 
 const ResumeViewer = () => {
-  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-  const [numPages, setNumPages] = useState<any>(null);
-  const [pageNumber, setPageNumber] = useState(1);
-
-  function onDocumentLoadSuccess({ numPages }: { numPages: any }) {
-    setNumPages(numPages);
-    setPageNumber(1);
-    console.log(numPages, pageNumber);
-  }
-
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <Button
@@ -40,42 +32,35 @@ const ResumeViewer = () => {
       </Button>
       <Modal isOpen={isOpen} onClose={onClose} size={'full'}>
         <ModalOverlay />
-        <ModalContent height={800}>
+        <ModalContent>
           <ModalHeader>
-            <Flex justifyContent={'space-evenly'} mb={3}>
-              ResumeViewer
-              <Button
-                onClick={() => setPageNumber(pageNumber - 1)}
-                isDisabled={pageNumber < numPages}
-              >
-                Previous Page
-              </Button>
-              <Button
-                onClick={() => setPageNumber(pageNumber + 1)}
-                isDisabled={pageNumber >= numPages}
-              >
-                Next Page
-              </Button>
-              <CloseButton
-                float={'right'}
-                onClick={onClose}
-                aria-label="close"
-                bg={'red.500'}
-                _hover={{ bg: 'red.600' }}
-              />
-            </Flex>
+            <HStack m={3} position="fixed" top={0} zIndex={10}>
+              <Flex zIndex={10} onClick={onClose}>
+                <Button
+                  zIndex={10}
+                  aria-label="close"
+                  bg={'red.500'}
+                  _hover={{ bg: 'red.600' }}
+                  leftIcon={<CloseIcon />}
+                >
+                  Close
+                </Button>
+              </Flex>
+              <Container right="0" zIndex={10}>
+                <Button rightIcon={<DownloadIcon />}>
+                  <a href={url} download={url}>
+                    Download
+                  </a>
+                </Button>
+              </Container>
+            </HStack>
           </ModalHeader>
           <ModalBody>
-            <Document file={url} onLoadSuccess={onDocumentLoadSuccess}>
-              <Box height={'90vh'} overflow={'scroll'} mx={'auto'}>
-                <Page
-                  width={1000}
-                  height={10}
-                  pageNumber={pageNumber}
-                  pageIndex={pageNumber}
-                />
-              </Box>
-            </Document>
+            <Box className='resumeViewer'>
+              <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+                <Viewer fileUrl={url} />
+              </Worker>
+            </Box>
           </ModalBody>
         </ModalContent>
       </Modal>

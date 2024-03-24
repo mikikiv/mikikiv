@@ -33,12 +33,13 @@ describe('template spec', () => {
 
   it('can view the pdf viewer', () => {
     cy.get('button').contains('View Resume').click();
-    cy.contains('Loading PDF').should('exist');
-    cy.get('.react-pdf__Page__canvas').should('exist');
-    cy.wait(300);
-    cy.contains('Loading PDF').should('not.exist');
-    cy.get('button').contains('Next Page').click();
-    cy.get('button').contains('Previous Page').click();
+    cy.get('[data-testid="core__canvas-layer-0"]').should('be.visible');
+    cy.get('button').contains('Download').click();
+    cy.request('/MikeyVillavicencio.pdf').should(
+      'have.property',
+      'status',
+      200
+    );
     cy.get('[aria-label="close"]').click();
     cy.get('.react-pdf__Page').should('not.exist');
   });
