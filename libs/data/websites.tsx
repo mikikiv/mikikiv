@@ -19,7 +19,8 @@ export type Languages =
 	| "Mantine"
 	| "Postgres"
 	| "Vercel"
-	| "Chrome Extensions";
+	| "Chrome Extensions"
+	| "Tailwind CSS";
 
 export interface Website {
 	id: number;
@@ -27,7 +28,7 @@ export interface Website {
 	links: Link[];
 	desc: string;
 	lang: Languages[];
-	img: string;
+	img?: string;
 	enabled: boolean;
 }
 
@@ -44,15 +45,15 @@ export const websites: Website[] = [
 		],
 		desc: "Built with React components with Docusaurus, a simple website about how a guest would watch my pets",
 		lang: ["React"],
-		img: "/sitePhotos/petsite.png",
+		img: "/sitePhotos/petsite.jpeg",
 		enabled: true,
 	},
 	{
 		id: 5,
-		name: "Youth Track Club",
+		name: "Amazon Distance Project",
 		desc: "A Wordpress site for managing youth sport team. \n December 2017 - December 2023",
 		lang: ["Wordpress"],
-		img: "/sitePhotos/adp.png",
+		img: "/sitePhotos/adp.jpeg",
 		enabled: true,
 		links: [
 			{
@@ -67,7 +68,7 @@ export const websites: Website[] = [
 		name: "CareMatey",
 		desc: "A web application for pet parents to store their pet care information",
 		lang: ["React", "Typescript", "Nextjs", "Chakra-ui", "Stripe", "Prisma"],
-		img: "/sitePhotos/carematey.png",
+		img: "/sitePhotos/carematey.jpeg",
 		enabled: true,
 		links: [
 			{
@@ -82,7 +83,7 @@ export const websites: Website[] = [
 		name: "QuickLorem.dev",
 		desc: "The fastest tool for getting lorem ipsum. A browser extension and webtool.",
 		lang: ["React", "Typescript", "Nextjs", "Mantine", "Chrome Extensions"],
-		img: "/sitePhotos/quicklorem.png",
+		img: "/sitePhotos/quicklorem.jpeg",
 		enabled: true,
 		links: [
 			{
@@ -104,6 +105,22 @@ export const websites: Website[] = [
 		],
 	},
 	{
+		id: 6,
+		name: "This site your on!",
+		desc: "",
+		lang: ["React", "Typescript", "Nextjs", "Tailwind CSS"],
+		enabled: true,
+		img: "/sitePhotos/mikikiv.jpeg",
+		links: [
+			{
+				href: "https://github.com/mikikiv/mikikiv",
+				label: "Github",
+				overlay: false,
+				icon: <FaGithub />,
+			},
+		],
+	},
+	{
 		id: 2,
 		name: "RestroomCodes",
 		desc: "A project for sharing known restroom access. Under development since January 2024.",
@@ -116,7 +133,7 @@ export const websites: Website[] = [
 			"Prisma",
 			"Vercel",
 		],
-		img: "/sitePhotos/restroomCodes.png",
+		img: "/sitePhotos/restroomCodes.jpeg",
 		enabled: false,
 		links: [
 			{

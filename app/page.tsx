@@ -42,6 +42,7 @@ export default function Home() {
 					label={label}
 					href={href}
 					icon={icon}
+					target="_blank"
 				/>
 			);
 		});
@@ -66,7 +67,6 @@ export default function Home() {
 				</div>
 			</section>
 			<section>
-				<h2 className=" text-xl">Site examples</h2>
 				<div className="m-b-12 grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
 					{websites
 						.filter(site => site.enabled !== false)

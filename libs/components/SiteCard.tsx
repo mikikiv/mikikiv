@@ -17,13 +17,15 @@ export const SiteCard = ({
 			className="justify-space-between h-full rounded-lg border-[0.1px] border-secondary-300 border-solid bg-gradient-to-br from-primary-100 to-accent-50 text-primary-950 shadow-lg duration-700 ease-in hover:border-accent-600"
 			{...rest}
 		>
-			<Image
-				className="rounded-lg"
-				alt={name}
-				src={img}
-				width={800}
-				height={800}
-			/>
+			{img && (
+				<Image
+					className="rounded-lg"
+					alt={name}
+					src={img}
+					width={800}
+					height={800}
+				/>
+			)}
 			<h3 className="my-4 text-center font-semibold text-secondary-900 text-xl">
 				{name}
 			</h3>
@@ -37,6 +39,8 @@ export const SiteCard = ({
 								href={link.href}
 								key={link.label}
 								className={index === 0 ? "w-full" : "w-1/2 flex-1"}
+								target="_blank"
+								rel="noreferrer"
 							>
 								<button
 									type="button"
