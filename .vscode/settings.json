@@ -1,3 +1,10 @@
 {
-  "prettier.singleQuote": true
+	"emeraldwalk.runonsave": {
+		"commands": [
+			{
+				"match": "\\.(ts|tsx|js|jsx|html)$",
+				"cmd": "npx @biomejs/biome lint ${file} --write --unsafe"
+			}
+		]
+	}
 }
