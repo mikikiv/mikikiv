@@ -19,6 +19,7 @@ const LanguageTag = ({ language }: { language: Languages }) => {
 			" bg-gradient-to-r from-black via-blue-600 to-purple-600 hover:from-black hover:via-blue-700 hover:to-purple-700 ",
 		"Chrome Extensions":
 			"bg-gradient-to-l from-yellow-400 via-blue-500 to-red-500 hover:from-yellow-500 hover:via-blue-600 hover:to-red-600",
+		"Tailwind CSS": "bg-sky-500 hover:bg-sky-600",
 	};
 
 	return (
