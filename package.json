@@ -1,6 +1,7 @@
 {
   "name": "mikikiv",
   "version": "0.1.0",
+  "packageManager": "pnpm@10.4.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -28,6 +29,5 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.9",
     "typescript": "^5"
-  },
-  "packageManager": "pnpm@10.4.1"
+  }
 }
