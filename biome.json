@@ -11,13 +11,29 @@
     "attributePosition": "multiline",
     "formatWithErrors": true
   },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true,
+      "indentWidth": 2,
+      "indentStyle": "space"
+    }
+  },
   "javascript": {
     "formatter": {
       "enabled": true,
       "arrowParentheses": "asNeeded",
       "semicolons": "always",
       "trailingCommas": "all",
-      "quoteProperties": "asNeeded"
+      "quoteProperties": "asNeeded",
+      "indentStyle": "space",
+      "indentWidth": 2
     }
   },
   "linter": {

@@ -14,7 +14,7 @@
   --text-800: 20 46 82;
   --text-900: 10 23 41;
   --text-950: 5 11 21;
-  
+
   --background-50: 234 240 250;
   --background-100: 214 225 245;
   --background-200: 173 196 235;
@@ -26,7 +26,7 @@
   --background-800: 20 43 82;
   --background-900: 10 21 41;
   --background-950: 5 11 21;
-  
+
   --primary-50: 235 240 250;
   --primary-100: 214 224 245;
   --primary-200: 174 194 234;
@@ -38,7 +38,7 @@
   --primary-800: 21 41 81;
   --primary-900: 10 20 41;
   --primary-950: 5 10 20;
-  
+
   --secondary-50: 236 241 249;
   --secondary-100: 216 227 243;
   --secondary-200: 177 200 231;
@@ -50,7 +50,7 @@
   --secondary-800: 24 47 78;
   --secondary-900: 12 23 39;
   --secondary-950: 6 12 19;
-  
+
   --accent-50: 234 241 250;
   --accent-100: 213 227 246;
   --accent-200: 172 199 236;
@@ -62,7 +62,6 @@
   --accent-800: 19 46 83;
   --accent-900: 9 23 42;
   --accent-950: 5 11 21;
-  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -78,7 +77,7 @@
     --text-800: 173 199 235;
     --text-900: 214 227 245;
     --text-950: 234 241 250;
-    
+
     --background-50: 5 11 21;
     --background-100: 10 21 41;
     --background-200: 20 43 82;
@@ -90,7 +89,7 @@
     --background-800: 173 196 235;
     --background-900: 214 225 245;
     --background-950: 234 240 250;
-    
+
     --primary-50: 5 10 20;
     --primary-100: 10 20 41;
     --primary-200: 21 41 81;
@@ -102,7 +101,7 @@
     --primary-800: 174 194 234;
     --primary-900: 214 224 245;
     --primary-950: 235 240 250;
-    
+
     --secondary-50: 6 12 19;
     --secondary-100: 12 23 39;
     --secondary-200: 24 47 78;
@@ -114,7 +113,7 @@
     --secondary-800: 177 200 231;
     --secondary-900: 216 227 243;
     --secondary-950: 236 241 249;
-    
+
     --accent-50: 5 11 21;
     --accent-100: 9 23 42;
     --accent-200: 19 46 83;
@@ -126,13 +125,10 @@
     --accent-800: 172 199 236;
     --accent-900: 213 227 246;
     --accent-950: 234 241 250;
-    
   }
-  
 }
 
 body {
   color: rgb(var(--text-50));
   background: rgb(var(--background-50));
 }
-

@@ -1,10 +1,10 @@
 {
-	"emeraldwalk.runonsave": {
-		"commands": [
-			{
-				"match": "\\.(ts|tsx|js|jsx|html)$",
-				"cmd": "npx @biomejs/biome lint ${file} --write --unsafe"
-			}
-		]
-	}
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "\\.(ts|tsx|js|jsx|html|css|json)$",
+        "cmd": "npx biome format ${file} --write --unsafe"
+      }
+    ]
+  }
 }
