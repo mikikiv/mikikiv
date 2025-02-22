@@ -1,31 +1,33 @@
 {
-	"name": "mikikiv",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint",
-		"test": "npx playwright test",
-		"watch": "npx playwright test --ui"
-	},
-	"dependencies": {
-		"@icons-pack/react-simple-icons": "^9.1.0",
-		"next": "14.2.15",
-		"react": "^18",
-		"react-dom": "^18",
-		"react-icons": "^5.2.1"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
+  "name": "mikikiv",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "npx biome lint --write",
+    "test": "npx playwright test",
+    "watch": "npx playwright test --ui",
+    "format": "npx biome format --fix"
+  },
+  "dependencies": {
+    "@icons-pack/react-simple-icons": "^9.1.0",
+    "next": "14.2.15",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.2.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@playwright/test": "^1.49.1",
-		"@types/node": "^22",
-		"@types/react": "^18",
-		"@types/react-dom": "^18",
-		"lefthook": "^1.7.15",
-		"postcss": "^8",
-		"tailwindcss": "^3.4.9",
-		"typescript": "^5"
-	}
+    "@types/node": "^22",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "lefthook": "^1.7.15",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.9",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@10.4.1"
 }
