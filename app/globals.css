@@ -132,3 +132,9 @@ body {
   color: rgb(var(--text-50));
   background: rgb(var(--background-50));
 }
+svg {
+  fill: rgb(var(--primary-800));
+}
+svg:hover {
+  fill: rgb(var(--primary-600));
+}
