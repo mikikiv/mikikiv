@@ -36,6 +36,7 @@ const Header = () => {
             href={socialLinkData.email.href}
             label="Email me"
             icon={socialLinkData.email.icon}
+            target="_blank"
           />
         </div>
       </div>

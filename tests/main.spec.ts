@@ -1,24 +1,12 @@
+import { socialLinkData } from "@/libs/data/socialData";
 import { expect, test } from "@playwright/test";
 
-test("get started link", async ({ page }) => {
+test("Basic tests", async ({ page }) => {
   await page.goto("/");
 
   await expect(
     page.getByRole("heading", { name: "Mikey Villavicencio" }),
   ).toBeVisible();
-
-  const socialLinks = [
-    page.getByRole("link", { name: "SubStack" }),
-    page.getByRole("link", { name: "LinkedIn" }),
-    page.getByRole("link", { name: "Email" }),
-    page.getByRole("link", { name: "Resume" }),
-    page.getByRole("link", { name: "GitHub" }).first(),
-  ];
-
-  for (const link of socialLinks) {
-    await expect(link).toBeVisible();
-    await expect(link).toHaveAttribute("target", "_blank");
-  }
 
   for (const card of await page.getByRole("article").all()) {
     await card.scrollIntoViewIfNeeded();
@@ -26,8 +14,8 @@ test("get started link", async ({ page }) => {
     await expect(card.getByRole("img")).toBeVisible();
     await expect(card.getByRole("heading")).not.toBeEmpty();
 
-    page.getByRole("link", { name: "Visit" });
-    for (const link of await page.getByRole("link").all()) {
+    const visitLinks = await page.getByRole("link", { name: "Visit" }).all();
+    for (const link of visitLinks) {
       await expect(link).toHaveAttribute("href");
       await expect(link).not.toBeEmpty();
       const visitLink = await link.filter({ hasText: "Visit" }).all();
@@ -42,4 +30,28 @@ test("get started link", async ({ page }) => {
   page.getByText("quicklorem.dev");
   page.getByText("carematey");
   page.getByText("petsitting");
+});
+
+test("All social accounts are present, have hrefs, and target='_blank'", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const socialAccounts = Object.keys(socialLinkData);
+
+  for (const socialAccount of socialAccounts) {
+    const allLinks = await page
+      .getByRole("link", { name: socialAccount })
+      .all();
+
+    for (const link of allLinks) {
+      await expect(link).toBeVisible();
+      await expect(link)
+        .toHaveAttribute("href")
+        .then(href => {
+          expect(href).not.toBeUndefined;
+          expect(href).not.toBeNull;
+        });
+      await expect(link).toHaveAttribute("target", "_blank");
+    }
+  }
 });
