@@ -1,53 +1,9 @@
-import IconButton from "@/libs/components/IconButton";
 import { SiteCard } from "@/libs/components/SiteCard";
+import SocialLinks from "@/libs/components/SocialLinks";
 import { websites } from "@/libs/data/websites";
 import Image from "next/image";
-import { HiDocument, HiEnvelope } from "react-icons/hi2";
-import { SiGithub, SiLinkedin, SiSubstack } from "react-icons/si";
 
 export default function Home() {
-  const SocialLinks = () => {
-    const socialAccounts = [
-      {
-        label: "GitHub",
-        href: "https://github.com/mikikiv",
-        icon: <SiGithub />,
-      },
-      {
-        label: "LinkedIn",
-        href: "https://www.linkedin.com/in/mikeyvillavicencio",
-        icon: <SiLinkedin />,
-      },
-      {
-        label: "Substack",
-        href: "https://substack.com/@mikikiv",
-        icon: <SiSubstack />,
-      },
-      {
-        label: "Email",
-        href: "mailto:mikey.v.dev@gmail.com",
-        icon: <HiEnvelope />,
-      },
-      {
-        label: "Resume",
-        href: "/MikeyVillavicencio.pdf",
-        icon: <HiDocument />,
-      },
-    ];
-
-    return socialAccounts.map(({ label, href, icon }) => {
-      return (
-        <IconButton
-          key={label}
-          label={label}
-          href={href}
-          icon={icon}
-          target="_blank"
-        />
-      );
-    });
-  };
-
   return (
     <div className="container mx-auto">
       <section className="my-auto mt-16 mb-4 flex h-96 text-text-950 sm:mb-0">
@@ -61,8 +17,8 @@ export default function Home() {
           />
           <h1 className="text-xl">Mikey Villavicencio</h1>
           <p>This is a site about me</p>
-          <div className="mt-16 flex flex-wrap justify-center gap-4 sm:gap-6">
-            <SocialLinks />
+          <div className="mt-10">
+            <SocialLinks direction="x" />
           </div>
         </div>
       </section>

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
-interface IconButtonType extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface IconButtonType
+  extends AnchorHTMLAttributes<HTMLAnchorElement> {
   label: string;
   icon: ReactNode;
   href: string;
