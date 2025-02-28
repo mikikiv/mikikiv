@@ -21,11 +21,11 @@ export const socialLinkData: Record<SocialPlatform, IconButtonType> = {
     href: "https://www.linkedin.com/in/mikeyvillavicencio",
     icon: <SiLinkedin />,
   },
-  bluesky: {
-    label: "Bluesky",
-    href: "https://bsky.app/profile/mikikiv.dev",
-    icon: <SiBluesky />,
-  },
+  // bluesky: {
+  //   label: "Bluesky",
+  //   href: "https://bsky.app/profile/mikikiv.dev",
+  //   icon: <SiBluesky />,
+  // },
   substack: {
     label: "Substack",
     href: "https://substack.com/@mikikiv",
