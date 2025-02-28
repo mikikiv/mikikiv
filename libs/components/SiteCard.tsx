@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Website } from "../data/websites";
+import { Button } from "./Button";
 import { Badge } from "./LanguageTag";
 
 export const SiteCard = ({
@@ -42,18 +43,19 @@ export const SiteCard = ({
                 target="_blank"
                 rel="noreferrer"
               >
-                <button
-                  type="button"
-                  className="w-full content-center text-pretty rounded-lg border-accent-300 border-x-[1px] border-solid bg-primary-100 py-2 text-center transition ease-in-out hover:bg-secondary-300 disabled:bg-primary-50 disabled:opacity-75"
+                <Button
+                  variant={"reverse"}
+                  color={link.label.match(/Github/i) ? "github" : "default"}
+                  className="btn w-full content-center"
                 >
                   {link.label}
-                </button>
+                </Button>
               </a>
             );
           })}
       </div>
 
-      <div className="m-4 flex flex-wrap gap-2">
+      <div className="mx-10 mb-6 flex flex-wrap justify-between gap-2">
         {lang?.sort().map(language => {
           return (
             <Badge
