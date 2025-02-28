@@ -22,10 +22,10 @@ export const SiteCard = ({
 }: Website) => {
   return (
     <Card className="h-full">
-      <CardHeader className=" text-center font-semibold text-secondary-900 text-xl">
+      <CardHeader className="text-center font-semibold text-secondary-900 text-xl">
         {name}
       </CardHeader>
-      <div className="mx-6 mb-6 flex flex-wrap justify-evenly gap-2">
+      <div className="mx-6 mb-6 flex flex-wrap justify-center gap-2">
         {lang?.sort().map(language => {
           return (
             <Badge
@@ -37,7 +37,7 @@ export const SiteCard = ({
           );
         })}
       </div>
-      <CardContent>
+      <CardContent className="">
         {img && (
           <Image
             alt={name}
@@ -46,31 +46,33 @@ export const SiteCard = ({
             height={800}
           />
         )}
-        <CardDescription className="mb-4 text-pretty">{desc}</CardDescription>
-        <CardFooter className="flex flex-wrap gap-1">
-          {links
-            ?.filter(link => link.disabled !== true)
-            .map((link, index) => {
-              return (
-                <a
-                  href={link.href}
-                  key={link.label}
-                  className={index === 0 ? "w-full" : "w-1/2 flex-1"}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Button
-                    variant={"reverse"}
-                    colors={link.label.match(/Github/i) ? "github" : "default"}
-                    className="w-full content-center"
-                  >
-                    {link.label}
-                  </Button>
-                </a>
-              );
-            })}
-        </CardFooter>
       </CardContent>
+      <CardDescription className="mx-6 mb-6 text-pretty">
+        {desc}
+      </CardDescription>
+      <CardFooter className="flex flex-wrap gap-1">
+        {links
+          ?.filter(link => link.disabled !== true)
+          .map((link, index) => {
+            return (
+              <a
+                href={link.href}
+                key={link.label}
+                className={index === 0 ? "w-full" : "w-1/2 flex-1"}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button
+                  variant={"reverse"}
+                  colors={link.label.match(/Github/i) ? "github" : "default"}
+                  className="w-full content-center"
+                >
+                  {link.label}
+                </Button>
+              </a>
+            );
+          })}
+      </CardFooter>
     </Card>
   );
 };
