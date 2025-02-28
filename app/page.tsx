@@ -1,3 +1,4 @@
+import { Button } from "@/libs/components/Button";
 import { SiteCard } from "@/libs/components/SiteCard";
 import SocialLinks from "@/libs/components/SocialLinks";
 import { websites } from "@/libs/data/websites";
@@ -43,6 +44,14 @@ export default function Home() {
                 />
               </div>
             ))}
+          <div className="mx-auto flex h-full items-center p-4">
+            <Button
+              variant={"reverse"}
+              className=""
+            >
+              Just a satisying button to click
+            </Button>
+          </div>
         </div>
       </section>
     </div>
