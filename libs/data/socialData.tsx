@@ -1,12 +1,12 @@
 import { HiDocument, HiEnvelope } from "react-icons/hi2";
-import { SiBluesky, SiGithub, SiLinkedin, SiSubstack } from "react-icons/si";
+import { SiGithub, SiLinkedin, SiSubstack } from "react-icons/si";
 import type { IconButtonType } from "../components/IconButton";
 
 export type SocialPlatform =
   | "github"
   | "linkedin"
   | "substack"
-  | "bluesky"
+  // | "bluesky"
   | "email"
   | "resume";
 
