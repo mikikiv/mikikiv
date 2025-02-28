@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Website } from "../data/websites";
-import LanguageTag from "./LanguageTag";
+import { Badge } from "./LanguageTag";
 
 export const SiteCard = ({
   id,
@@ -56,10 +56,12 @@ export const SiteCard = ({
       <div className="m-4 flex flex-wrap gap-2">
         {lang?.sort().map(language => {
           return (
-            <LanguageTag
+            <Badge
               key={language}
-              language={language}
-            />
+              variant={language}
+            >
+              {language}
+            </Badge>
           );
         })}
       </div>
