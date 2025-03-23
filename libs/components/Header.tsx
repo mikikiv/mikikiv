@@ -5,7 +5,7 @@ import IconButton from "./IconButton";
 
 const Header = () => {
   return (
-    <div className="sticky top-0 z-50 w-full bg-primary-50/[.9] shadow-md">
+    <div className="sticky top-0 z-50 w-full border-black border-b-2 border-solid bg-white py-4">
       <div className="container mx-auto flex flex-auto text-text-800 hover:text-text-900 lg:grid-cols-7">
         <a
           href="/"
