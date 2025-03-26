@@ -8,26 +8,30 @@ export interface Link {
   icon?: React.JSX.Element;
 }
 
-export type Languages =
-  | "React"
-  | "Typescript"
-  | "Nextjs"
-  | "Chakra-ui"
-  | "Stripe"
-  | "Prisma"
-  | "Wordpress"
-  | "Mantine"
-  | "Postgres"
-  | "Vercel"
-  | "Chrome Extensions"
-  | "Tailwind CSS";
+export const AVAILABLE_LANGUAGES = [
+  "React",
+  "Typescript",
+  "Nextjs",
+  "Chakra-ui",
+  "Stripe",
+  "Prisma",
+  "Wordpress",
+  "Mantine",
+  "Postgres",
+  "Vercel",
+  "Chrome Extensions",
+  "Tailwind CSS",
+  "Docusaurus",
+] as const;
+
+export type Language = (typeof AVAILABLE_LANGUAGES)[number];
 
 export interface Website {
   id: number;
   name: string;
   links: Link[];
   desc: string;
-  lang: Languages[];
+  lang: Language[];
   img?: string;
   enabled: boolean;
 }
@@ -45,7 +49,7 @@ export const websites: Website[] = [
       },
     ],
     desc: "Built with React components with Docusaurus, a simple website about how a guest would watch my pets",
-    lang: ["React"],
+    lang: ["React", "Docusaurus"],
     img: "/sitePhotos/petsite.jpeg",
     enabled: true,
   },
@@ -68,7 +72,7 @@ export const websites: Website[] = [
     id: 3,
     name: "CareMatey",
     desc: "A web application for pet parents to store their pet care information",
-    lang: ["React", "Typescript", "Nextjs", "Chakra-ui", "Stripe", "Prisma"],
+    lang: ["React", "Typescript", "Nextjs", "Stripe", "Prisma"],
     img: "/sitePhotos/carematey.jpeg",
     enabled: true,
     links: [
@@ -84,7 +88,7 @@ export const websites: Website[] = [
     id: 1,
     name: "QuickLorem.dev",
     desc: "The fastest tool for getting lorem ipsum. A browser extension and webtool.",
-    lang: ["React", "Typescript", "Nextjs", "Mantine", "Chrome Extensions"],
+    lang: ["React", "Typescript", "Nextjs", "Chrome Extensions"],
     img: "/sitePhotos/quicklorem.jpeg",
     enabled: true,
     links: [
@@ -126,15 +130,7 @@ export const websites: Website[] = [
     id: 2,
     name: "RestroomCodes",
     desc: "A project for sharing known restroom access. Under development since January 2024.",
-    lang: [
-      "React",
-      "Typescript",
-      "Nextjs",
-      "Mantine",
-      "Postgres",
-      "Prisma",
-      "Vercel",
-    ],
+    lang: ["React", "Typescript", "Nextjs", "Mantine", "Postgres", "Prisma"],
     img: "/sitePhotos/restroomCodes.jpeg",
     enabled: false,
     links: [
