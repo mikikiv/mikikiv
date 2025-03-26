@@ -1,4 +1,5 @@
-import CardDisplay from "@/libs/components/CardDisplay";
+"use client";
+import SitesDisplay from "@/libs/components/SitesDisplay";
 import SocialLinks from "@/libs/components/SocialLinks";
 import Image from "next/image";
 
@@ -21,7 +22,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <CardDisplay />
+      <SitesDisplay />
     </div>
   );
 }

@@ -9,7 +9,7 @@ import { SiteCard } from "./SiteCard";
 
 const filteredSites = websites.filter(site => site.enabled !== false);
 
-const CardDisplay = () => {
+const SitesDisplay = () => {
   const filterOptions = Array.from(
     new Set(filteredSites.flatMap(site => site.lang)),
   );
@@ -41,49 +41,49 @@ const CardDisplay = () => {
 
   return (
     <section>
-      <div className="m-4 grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+      <div className="m-4 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
         <div className="flex gap-2">
           <Button
             key={"clear"}
-            className={cx(
-              badgeVariants({
-                uiStyle: "button",
-              }),
-              "w-1/2",
-            )}
+            className={cx(filters.length > 1 ? "w-1/2" : "w-full")}
             variant={"reverse"}
             onClick={() => {
               setFilters([]);
             }}
+            disabled={filters.length === 0}
           >
-            {"Clear"}
+            {"Reset"}
           </Button>
-          <Button
-            key={"all"}
-            className={cx(
-              badgeVariants({
-                uiStyle: "button",
-              }),
-              "w-1/2",
-            )}
-            variant={explicit ? "default" : "reverse"}
-            onClick={() => {
-              setExplicit(!explicit);
-            }}
-          >
-            {"Exact"}
-          </Button>
+          {filters.length > 1 && (
+            <Button
+              key={"all"}
+              className={cx(
+                "w-1/2",
+                !explicit ? "-translate-y-1 -translate-x-1" : "",
+              )}
+              variant={explicit ? "reverse" : "default"}
+              onClick={() => {
+                setExplicit(!explicit);
+              }}
+            >
+              {explicit ? "Match All" : "Match Any"}
+            </Button>
+          )}
         </div>
         {filterOptions.map(filterName => {
+          const selected = interacted === true && filters.includes(filterName);
           return (
             <Button
               key={filterName}
-              className={badgeVariants({
-                variant: filterName,
-                uiStyle: "button",
-              })}
+              className={cx(
+                badgeVariants({
+                  variant: filterName,
+                }),
+                selected ? "-translate-x-1 -translate-y-1" : "",
+              )}
+              aria-selected={selected}
               variant={
-                filters.includes(filterName) || filters.length === 0
+                filters.includes(filterName) || interacted === false
                   ? "default"
                   : "reverse"
               }
@@ -115,10 +115,12 @@ const CardDisplay = () => {
               />
             </div>
           ))}
-        <div className="mx-auto flex h-full items-center p-4">
+        <div className="flex h-full w-full items-center p-4">
           <Button
-            variant={"reverse"}
-            className=""
+            className={
+              "hover:-translate-x-hover hover:-translate-y-hover active:-translate-x-selected active:-translate-y-selected"
+            }
+            variant={"default"}
           >
             Just a satisying button to click
           </Button>
@@ -128,4 +130,4 @@ const CardDisplay = () => {
   );
 };
 
-export default CardDisplay;
+export default SitesDisplay;
