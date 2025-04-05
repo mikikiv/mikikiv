@@ -1,6 +1,5 @@
-import SvgLogo from "@/lib/Logo";
-import { cx } from "class-variance-authority";
 import React from "react";
+import SvgLogo from "../Logo";
 import { socialLinkData } from "../data/socialData";
 import { Button } from "./Button";
 import IconButton from "./IconButton";
