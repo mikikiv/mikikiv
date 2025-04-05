@@ -7,7 +7,7 @@ import IconButton from "./IconButton";
 const Header = () => {
   return (
     <div className="sticky top-0 z-50 w-full border-black border-b-2 border-solid bg-bg py-4">
-      <div className="container mx-auto flex justify-between border-2">
+      <div className="container mx-auto flex justify-between">
         <a
           href="/"
           className="mx-4 my-auto fill-text font-thin text-4xl transition duration-300 ease-in-out hover:scale-105"
