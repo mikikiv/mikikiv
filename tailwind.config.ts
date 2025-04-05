@@ -28,12 +28,12 @@ const config: Config = {
       },
       boxShadow: {
         shadow: "var(--shadow)",
+        "double-shadow": "var(--double-shadow)",
       },
       translate: {
-        boxShadowX: "3px",
-        boxShadowY: "3px",
-        reverseBoxShadowX: "-3px",
-        reverseBoxShadowY: "-3px",
+        hover: "-2px",
+        selected: "-4px",
+        pressed: "0px",
       },
       fontWeight: {
         base: "400",

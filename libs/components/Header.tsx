@@ -1,19 +1,28 @@
-import SvgLogo from "@/lib/Logo";
 import React from "react";
+import SvgLogo from "../Logo";
 import { socialLinkData } from "../data/socialData";
+import { Button } from "./Button";
 import IconButton from "./IconButton";
 
 const Header = () => {
   return (
-    <div className="sticky top-0 z-50 w-full border-black border-b-2 border-solid bg-white py-4">
-      <div className="container mx-auto flex flex-auto text-text-800 hover:text-text-900 lg:grid-cols-7">
+    <div className="sticky top-0 z-50 w-full border-black border-b-2 border-solid bg-bg py-4">
+      <div className="container mx-auto flex justify-between">
         <a
           href="/"
-          className="m-auto ml-4 font-thin text-4xl transition duration-300 ease-in-out hover:scale-105 lg:col-span-2 lg:ml-24"
+          className="mx-4 my-auto fill-text font-thin text-4xl transition duration-300 ease-in-out hover:scale-105"
         >
           <SvgLogo />
         </a>
-        <div className="my-auto">
+        <div className="mx-4 my-auto flex">
+          <Button
+            className={
+              "-translate-y-1 -translate-x-1 mx-4 hidden transition duration-300 sm:block"
+            }
+            variant={"default"}
+          >
+            Just a satisying button to click
+          </Button>
           <IconButton
             href={socialLinkData.email.href}
             label="Email me"
