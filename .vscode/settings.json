@@ -6,5 +6,11 @@
         "cmd": "npx biome format ${file} --write --unsafe"
       }
     ]
-  }
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "always"
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modifications"
 }

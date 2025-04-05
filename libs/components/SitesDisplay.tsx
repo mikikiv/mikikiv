@@ -39,6 +39,8 @@ const SitesDisplay = () => {
     });
   };
 
+  const [andOrButtonHover, setAndOrButtonHover] = useState(false);
+
   return (
     <section>
       <div className="m-4 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
@@ -56,17 +58,32 @@ const SitesDisplay = () => {
           </Button>
           {filters.length > 1 && (
             <Button
-              key={"all"}
               className={cx(
-                "w-1/2",
+                "w-1/2 transition duration-300",
                 !explicit ? "-translate-y-1 -translate-x-1" : "",
               )}
               variant={explicit ? "reverse" : "default"}
               onClick={() => {
                 setExplicit(!explicit);
               }}
+              onMouseOver={() => {
+                setAndOrButtonHover(true);
+              }}
+              onMouseOut={() => {
+                setAndOrButtonHover(false);
+              }}
             >
-              {explicit ? "Match All" : "Match Any"}
+              {!explicit ? (
+                <>
+                  <span>or</span>
+                  <span className="line-through">and</span>
+                </>
+              ) : (
+                <>
+                  <span className="line-through">or</span>
+                  <span>and</span>
+                </>
+              )}
             </Button>
           )}
         </div>
