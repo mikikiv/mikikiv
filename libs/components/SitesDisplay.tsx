@@ -2,7 +2,7 @@
 
 import { cx } from "class-variance-authority";
 import { useState } from "react";
-import { AVAILABLE_LANGUAGES, type Language, websites } from "../data/websites";
+import { type Language, websites } from "../data/websites";
 import { Button } from "./Button";
 import { badgeVariants } from "./LanguageTag";
 import { SiteCard } from "./SiteCard";
@@ -15,7 +15,7 @@ const SitesDisplay = () => {
   );
   const [filters, setFilters] = useState([] as Language[]);
   const [interacted, setInteracted] = useState(false);
-  const [explicit, setExplicit] = useState(true);
+  const [explicit, setExplicit] = useState(false);
 
   const addRemoveFromFilters = (i: Language) => {
     setInteracted(true);
@@ -38,8 +38,6 @@ const SitesDisplay = () => {
       return filters.some(language => site.lang.includes(language));
     });
   };
-
-  const [andOrButtonHover, setAndOrButtonHover] = useState(false);
 
   return (
     <section>
@@ -66,29 +64,25 @@ const SitesDisplay = () => {
               onClick={() => {
                 setExplicit(!explicit);
               }}
-              onMouseOver={() => {
-                setAndOrButtonHover(true);
-              }}
-              onMouseOut={() => {
-                setAndOrButtonHover(false);
-              }}
             >
               {!explicit ? (
-                <>
+                <pre>
                   <span>or</span>
-                  <span className="line-through">and</span>
-                </>
+                  <span>|</span>
+                  <span className="line-through opacity-50">and</span>
+                </pre>
               ) : (
-                <>
-                  <span className="line-through">or</span>
+                <pre>
+                  <span className="line-through opacity-50">or</span>
+                  <span>|</span>
                   <span>and</span>
-                </>
+                </pre>
               )}
             </Button>
           )}
         </div>
         {filterOptions.map(filterName => {
-          const selected = interacted === true && filters.includes(filterName);
+          const selected = filters.includes(filterName);
           return (
             <Button
               key={filterName}
@@ -96,14 +90,12 @@ const SitesDisplay = () => {
                 badgeVariants({
                   variant: filterName,
                 }),
-                selected ? "-translate-x-1 -translate-y-1" : "",
+                selected || interacted === false
+                  ? "-translate-x-1 -translate-y-1"
+                  : "",
               )}
               aria-selected={selected}
-              variant={
-                filters.includes(filterName) || interacted === false
-                  ? "default"
-                  : "reverse"
-              }
+              variant={selected || interacted === false ? "default" : "reverse"}
               onClick={() => {
                 addRemoveFromFilters(filterName);
               }}
@@ -132,16 +124,6 @@ const SitesDisplay = () => {
               />
             </div>
           ))}
-        <div className="flex h-full w-full items-center p-4">
-          <Button
-            className={
-              "hover:-translate-x-hover hover:-translate-y-hover active:-translate-x-selected active:-translate-y-selected"
-            }
-            variant={"default"}
-          >
-            Just a satisying button to click
-          </Button>
-        </div>
       </div>
     </section>
   );

@@ -6,8 +6,8 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="container mx-auto">
-      <section className="flex h-96 text-text-950 sm:mb-0">
-        <div className="mx-auto my-auto text-center ">
+      <section className="flex sm:mb-0">
+        <div className="mx-auto my-auto mt-8 text-center">
           <Image
             alt="Mikey"
             width={150}
@@ -16,13 +16,13 @@ export default function Home() {
             src="https://avatars.githubusercontent.com/u/46366395?v=4"
           />
           <h1 className="text-mtext text-xl">Mikey Villavicencio</h1>
-          <p className="mb-16 text-mtext">SDET and more</p>
-          <div className="mt-10">
+          <p className="text-mtext">SDET and more</p>
+          <div className="mt-8">
             <SocialLinks direction="x" />
+            <SitesDisplay />
           </div>
         </div>
       </section>
-      <SitesDisplay />
     </div>
   );
 }
