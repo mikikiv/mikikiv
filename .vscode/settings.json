@@ -12,5 +12,7 @@
     "source.organizeImports.biome": "always"
   },
   "editor.formatOnSave": true,
-  "editor.formatOnSaveMode": "modifications"
+  "editor.formatOnSaveMode": "modifications",
+  "editor.defaultFormatter": "biomejs.biome",
+  "biome.configurationPath": ".config/biome.json"
 }

@@ -4,7 +4,12 @@
     "enabled": true
   },
   "files": {
-    "ignore": [".next/**", "node_modules/**", "public/**"]
+    "ignore": [
+      ".next/**",
+      "node_modules/**",
+      "public/**",
+      "./playwright-report/*"
+    ]
   },
   "formatter": {
     "enabled": true,
