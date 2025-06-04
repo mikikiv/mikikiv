@@ -42,10 +42,10 @@ export const websites: Website[] = [
     name: "PetSitting Website",
     links: [
       {
-        href: "https://home.taylerandmikey.com/",
+        href: "https://home-taylerandmikey.netlify.app/",
         label: "Visit",
         overlay: true,
-        disabled: true,
+        disabled: false,
       },
     ],
     desc: "Built with React components with Docusaurus, a simple website about how a guest would watch my pets",
@@ -77,10 +77,10 @@ export const websites: Website[] = [
     enabled: true,
     links: [
       {
-        href: "https://carematey.com/",
+        href: "https://carematey-mikey-villavicencios-projects.vercel.app/",
         label: "Visit",
         overlay: true,
-        disabled: true,
+        disabled: false,
       },
     ],
   },
