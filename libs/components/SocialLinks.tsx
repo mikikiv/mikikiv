@@ -1,5 +1,5 @@
-import IconButton from "@/libs/components/IconButton";
 import { cx } from "class-variance-authority";
+import IconButton from "@/libs/components/IconButton";
 import { type SocialPlatform, socialLinkData } from "../data/socialData";
 
 const SocialLinks = ({

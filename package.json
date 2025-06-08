@@ -7,6 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "check": "npx biome check",
+    "fix": "npx biome check --write",
     "lint": "npx biome lint --write",
     "test": "npx playwright test",
     "watch": "npx playwright test --ui",
@@ -26,7 +28,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.0.0-beta.6",
     "@playwright/test": "^1.49.1",
     "@types/node": "^22",
     "@types/react": "^18",

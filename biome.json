@@ -1,14 +1,13 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.0/schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
+  "$schema": "https://biomejs.dev/schemas/2.0.0-beta.6/schema.json",
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "files": {
-    "ignore": [
-      ".next/**",
-      "node_modules/**",
-      "public/**",
-      "./playwright-report/*"
+    "includes": [
+      "**",
+      "!**/.next/**",
+      "!**/node_modules/**",
+      "!**/public/**",
+      "!playwright-report/*"
     ]
   },
   "formatter": {
@@ -42,12 +41,29 @@
     }
   },
   "linter": {
+    "domains": {
+      "test": "all",
+      "react": "all",
+      "next": "all"
+    },
     "enabled": true,
-    "ignore": ["node_modules/**", ".next/**", "public/**"],
+    "includes": ["**", "!**/node_modules/**", "!**/.next/**", "!**/public/**"],
     "rules": {
       "recommended": true,
       "nursery": {
         "useSortedClasses": "error"
+      },
+      "style": {
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error"
       }
     }
   }

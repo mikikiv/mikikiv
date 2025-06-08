@@ -1,4 +1,4 @@
-import { type VariantProps, cva, cx } from "class-variance-authority";
+import { cva, cx, type VariantProps } from "class-variance-authority";
 
 import * as React from "react";
 
@@ -63,7 +63,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ? "translate-x-selected translate-y-selected"
             : "",
         )}
-        aria-selected={ariaSelected}
+        aria-pressed={ariaSelected}
         ref={ref}
         {...props}
       />

@@ -1,5 +1,5 @@
-import { socialLinkData } from "@/libs/data/socialData";
 import { expect, test } from "@playwright/test";
+import { socialLinkData } from "@/libs/data/socialData";
 
 test("Basic tests", async ({ page }) => {
   await page.goto("/");

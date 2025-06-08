@@ -1,7 +1,7 @@
 "use client";
+import Image from "next/image";
 import SitesDisplay from "@/libs/components/SitesDisplay";
 import SocialLinks from "@/libs/components/SocialLinks";
-import Image from "next/image";
 
 export default function Home() {
   return (

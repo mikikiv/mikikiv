@@ -22,7 +22,10 @@ export const SiteCard = ({
 }: Website) => {
   return (
     <Card className="h-full">
-      <CardHeader className="text-center font-semibold text-secondary-900 text-xl">
+      <CardHeader
+        className="text-center font-semibold text-secondary-900 text-xl"
+        {...rest}
+      >
         {name}
       </CardHeader>
       <div className="mx-6 mb-6 flex flex-wrap justify-center gap-2">

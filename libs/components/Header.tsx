@@ -1,6 +1,5 @@
-import React from "react";
-import SvgLogo from "../Logo";
 import { socialLinkData } from "../data/socialData";
+import SvgLogo from "../Logo";
 import { Button } from "./Button";
 import IconButton from "./IconButton";
 
