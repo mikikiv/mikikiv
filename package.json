@@ -1,41 +1,37 @@
 {
-  "name": "mikikiv",
-  "version": "0.1.0",
-  "packageManager": "pnpm@10.4.1",
-  "private": true,
+  "name": "mikikiv-2",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
     "check": "npx biome check",
     "fix": "npx biome check --write",
     "lint": "npx biome lint --write",
-    "test": "npx playwright test",
-    "watch": "npx playwright test --ui",
     "format": "npx biome format --fix"
   },
   "dependencies": {
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/starlight": "^0.34.3",
+    "@astrojs/starlight-tailwind": "^4.0.1",
+    "@astrojs/ts-plugin": "^1.10.4",
     "@icons-pack/react-simple-icons": "^9.1.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "eslint-config-next": "^15.2.0",
-    "lucide-react": "^0.476.0",
-    "next": "15.2.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "astro": "^5.6.1",
+    "postcss": "^8",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-icons": "^5.2.1",
-    "tailwind-merge": "^3.0.2",
-    "tailwindcss-animate": "^1.0.7"
+    "sharp": "^0.32.5",
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.0-beta.6",
-    "@playwright/test": "^1.49.1",
-    "@types/node": "^22",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "lefthook": "^1.11.7",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.9",
-    "typescript": "^5"
-  }
+    "lefthook": "^1.11.7"
+  },
+  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
 }

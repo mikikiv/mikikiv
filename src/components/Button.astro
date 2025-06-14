@@ -1,0 +1,65 @@
+---
+import { SocialIcon } from "./SocialIcon";
+
+const baseTheme =
+  "inline-flex items-center justify-center gap-2 overflow-auto whitespace-nowrap rounded-base font-base text-sm  disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 transition-all ";
+
+const buttonVariants = {
+  // static with shadow
+  default:
+    "border-2 border-border shadow-double-shadow hover:shadow-shadow  hover:translate-x-hover hover:translate-y-hover active:shadow-none active:translate-y-pressed active:translate-x-pressed",
+  noShadow: "border-2 border-border",
+  neutral: "",
+  // static no shadow
+  reverse:
+    "border-2 border-border shadow-none hover:translate-x-hover hover:translate-y-hover hover:shadow-shadow active:translate-x-pressed active:translate-y-pressed active:shadow-none",
+};
+const buttonColors = {
+  default: "bg-bg text-text",
+  github: "bg-slate-600 text-white",
+};
+
+const buttonSizes = {
+  default: "h-10 px-4 py-2",
+  sm: "h-9 px-3",
+  lg: "h-11 px-8",
+  icon: "h-10 w-10",
+};
+
+const {
+  href,
+  label,
+  iconType,
+  className,
+  variant = "default",
+  "aria-selected": ariaSelected = false,
+  color = "default",
+  size = "default",
+  role,
+  ...props
+} = Astro.props;
+---
+
+<a href={href} target="_blank" data-label={label}>
+  <button
+    class:list={[
+      ariaSelected === true ? "translate-x-selected translate-y-selected" : "",
+      baseTheme,
+      buttonVariants[variant as keyof typeof buttonVariants],
+      buttonColors[color as keyof typeof buttonColors],
+      buttonSizes[size as keyof typeof buttonSizes],
+      className,
+    ]}
+    aria-pressed={ariaSelected}
+  >
+    {
+      iconType && (
+        <div slot="icon">
+          <SocialIcon client:load type={iconType} />
+        </div>
+      )
+    }
+    <slot name="icon" />
+    <slot name="label">{label}</slot>
+  </button>
+</a>

@@ -1,0 +1,43 @@
+---
+import Image from "astro/components/Image.astro";
+import Button from "../components/Button.astro";
+import { socialLinkData } from "../data/socialData";
+import Layout from "../layouts/layout.astro";
+---
+
+<Layout>
+  <div class="container mx-auto">
+    <section class="flex sm:mb-0">
+      <div class="mx-auto my-auto mt-8 text-center">
+        <Image
+          alt="Mikey"
+          width={150}
+          height={150}
+          class="mx-auto rounded-full"
+          src="https://avatars.githubusercontent.com/u/46366395?v=4"
+        />
+        <h1 class="text-mtext text-xl">Mikey Villavicencio</h1>
+        <p class="text-mtext">SDET and more</p>
+        <div class="mt-8">
+          <div class:list={["flex flex-wrap", "justify-center gap-4 sm:gap-6"]}>
+            {
+              socialLinkData.map(({ href, label, iconType }) => (
+                <Button
+                  class="flex"
+                  variant="reverse"
+                  color={label === "GitHub" ? "GitHub" : "default"}
+                  href={href}
+                  target="_blank"
+                  iconType={iconType}
+                >
+                  <span slot="label">{label}</span>
+                </Button>
+              ))
+            }
+          </div>
+          <!-- <SitesDisplay /> -->
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
