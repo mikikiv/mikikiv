@@ -113,7 +113,7 @@ export const websites: Website[] = [
   {
     id: 2,
     name: "This site your on!",
-    desc: "",
+    desc: "Automated Github CI Pipelines running Playwright tests. This site changes often for practice.",
     lang: ["React", "Typescript", "Nextjs", "Tailwind CSS"],
     enabled: true,
     img: "/sitePhotos/mikikiv.jpeg",
