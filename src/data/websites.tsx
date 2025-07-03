@@ -9,6 +9,7 @@ export interface Link {
 }
 
 export const AVAILABLE_LANGUAGES = [
+  "Astro",
   "React",
   "Typescript",
   "Nextjs",
@@ -34,6 +35,7 @@ export interface Website {
   lang: Language[];
   img?: string;
   enabled: boolean;
+  rest?:   Record<string, any>;
 }
 
 export const websites: Website[] = [
@@ -114,7 +116,7 @@ export const websites: Website[] = [
     id: 2,
     name: "This site your on!",
     desc: "",
-    lang: ["React", "Typescript", "Nextjs", "Tailwind CSS"],
+    lang: ["React", "Typescript", "Astro", "Tailwind CSS"],
     enabled: true,
     img: "/sitePhotos/mikikiv.jpeg",
     links: [

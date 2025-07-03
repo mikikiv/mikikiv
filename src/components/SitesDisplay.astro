@@ -1,0 +1,50 @@
+---
+import { websites } from "../data/websites";
+import LanguageTag from "./LanguageTag.astro";
+import SiteCard from "./SiteCard.astro";
+
+const filteredSites = websites.filter((site) => site.enabled !== false);
+
+const filterOptions = Array.from(
+  new Set(filteredSites.flatMap((site) => site.lang)),
+);
+---
+
+<section>
+  <div
+    class="m-4 grid grid-cols-3 gap-4 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8"
+  >
+    {
+      filterOptions.map((filterName) => {
+        return (
+          <LanguageTag
+            variant={filterName}
+          >
+            {filterName}
+          </Button>
+        );
+      })
+    }
+  </div>
+  <div
+    class="m-b-12 grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+  >
+    {
+      filteredSites
+        .sort((a, b) => a.id - b.id)
+        .map((site) => (
+          <div class="flex h-full w-full items-center p-4">
+            <SiteCard
+              id={site.id}
+              name={site.name}
+              links={site.links}
+              desc={site.desc}
+              lang={site.lang.map((io) => io)}
+              enabled={site.enabled}
+              img={site.img}
+            />
+          </div>
+        ))
+    }
+  </div>
+</section>

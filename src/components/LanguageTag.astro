@@ -1,0 +1,36 @@
+---
+const baseStyle =
+  "inline-flex items-center rounded-base border-2 border-border px-2.5 font-base py-0.5 transition-all text-xs";
+
+const badgeVariants = {
+  default: "bg-main text-text",
+  neutral: "bg-bw text-text",
+  Astro: "bg-gradient-to-r from-red-600 to-pink-400 text-white",
+  Docusaurus: "bg-green-400 text-black",
+  React: "bg-gradient-to-r bg-cyan-300 text-black",
+  Typescript: "bg-blue-800 text-white",
+  Nextjs: "bg-black text-white",
+  "Chakra-ui": "bg-purple-400",
+  Stripe:
+    "bg-gradient-to-r from-blue-400  via-violet-300 to-violet-300 text-black",
+  Prisma: "bg-orange-400 text-black",
+  Wordpress: "bg-blue-600 text-white",
+  Mantine: "bg-sky-700 text-white",
+  Vercel: "",
+  Postgres: "bg-gray-600 hover:bg-gray-700",
+  "Chrome Extensions": "bg-gradient-to-r from-yellow-400  via-green-300 to-red-200 text-black",
+  "Tailwind CSS": "bg-sky-300 text-black",
+};
+
+type Props = {
+  variant: keyof typeof badgeVariants;
+}
+
+const { variant, ...rest } = Astro.props;
+
+
+---
+
+<span class:list={[badgeVariants[variant], baseStyle]} {...rest}>
+  <slot />
+</span>

@@ -1,0 +1,61 @@
+---
+import type { Website } from "../data/websites";
+import Button from "./Button.astro";
+import Card from "./Card.astro";
+import LanguageTag from "./LanguageTag.astro";
+
+const { id, name, links, desc, img, lang, enabled, ...rest } = Astro.props as Website;
+  
+
+ 
+---
+
+<Card class="h-full">
+  <div
+    slot="header"
+    class="text-center font-semibold text-secondary-900 text-xl"
+    {...rest}
+  >
+    {name}
+  </div>
+  <div slot="content">
+  <div class="mx-6 mb-6 flex flex-wrap justify-center gap-2">
+    {
+      lang?.sort().map((language) => {
+        console.log(language)
+        return <LanguageTag variant={language}>{language}</LanguageTag>;
+      })
+    }
+  </div>
+    {img && <img alt={name} src={img} width={800} height={800} />}
+  </div>
+  <div slot="description" class="mx-6 mb-6 text-pretty">
+    {desc}
+  </div>
+  <div class="flex flex-wrap gap-1 mx-auto" slot="footer">
+    {
+      links
+        ?.filter((link) => link.disabled !== true)
+        .map((link, index) => {
+          return (
+            <a
+              href={link.href}
+              class={index === 0 ? "w-full" : "w-1/2 flex-1"}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button
+                variant={"reverse"}
+                color={link.label.match(/Github/i) ? "github" : "default"}
+                class="w-full content-center"
+                label={link.label}
+
+
+              />
+
+            </a>
+          );
+        })
+    }
+  </div>
+</Card>

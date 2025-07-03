@@ -1,0 +1,19 @@
+
+
+  <div
+    class="rounded-base border-2 border-border bg-main text-mtext"
+  >
+  <slot name="header" class="flex flex-col space-y-1.5 p-6"  />
+
+  <slot name="title" class="font-heading text-xl leading-none tracking-tight" />
+
+  <slot name="description"/>
+
+  <slot name="content" class="p-6 pt-0"/>
+
+  <div class="flex items-center p-6 pt-0">
+      <slot name="footer" />
+  </div>
+</div>
+
+
