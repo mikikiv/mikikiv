@@ -1,4 +1,4 @@
-import { HiDocument, HiEnvelope } from "react-icons/hi2";
+import { HiEnvelope } from "react-icons/hi2";
 import { SiGithub, SiLinkedin, SiSubstack } from "react-icons/si";
 import type { IconButtonType } from "../components/IconButton";
 
@@ -7,8 +7,7 @@ export type SocialPlatform =
   | "linkedin"
   | "substack"
   // | "bluesky"
-  | "email"
-  | "resume";
+  | "email";
 
 export const socialLinkData: Record<SocialPlatform, IconButtonType> = {
   github: {
@@ -35,10 +34,5 @@ export const socialLinkData: Record<SocialPlatform, IconButtonType> = {
     label: "Email",
     href: "mailto:mikey.v.dev@gmail.com",
     icon: <HiEnvelope />,
-  },
-  resume: {
-    label: "Resume",
-    href: "/MikeyVillavicencio.pdf",
-    icon: <HiDocument />,
   },
 };
